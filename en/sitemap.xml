@@ -38,45 +38,6 @@
                 href="https://hoangtrungkien210895.github.io/en/"
                 />
   </url><url>
-    <loc>https://hoangtrungkien210895.github.io/en/blog/</loc>
-    <lastmod>2021-07-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hoangtrungkien210895.github.io/de/blog/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hoangtrungkien210895.github.io/en/blog/"
-                />
-  </url><url>
-    <loc>https://hoangtrungkien210895.github.io/en/tags/emoji/</loc>
-    <lastmod>2021-07-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hoangtrungkien210895.github.io/de/tags/emoji/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hoangtrungkien210895.github.io/en/tags/emoji/"
-                />
-  </url><url>
-    <loc>https://hoangtrungkien210895.github.io/en/blog/emoji-support/</loc>
-    <lastmod>2021-07-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hoangtrungkien210895.github.io/de/blog/emoji-support/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hoangtrungkien210895.github.io/en/blog/emoji-support/"
-                />
-  </url><url>
     <loc>https://hoangtrungkien210895.github.io/en/page/</loc>
     <lastmod>2021-07-15T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -90,27 +51,17 @@
                 href="https://hoangtrungkien210895.github.io/en/page/"
                 />
   </url><url>
-    <loc>https://hoangtrungkien210895.github.io/en/tags/</loc>
-    <lastmod>2021-07-15T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://hoangtrungkien210895.github.io/fr/tags/"
-                />
+    <loc>https://hoangtrungkien210895.github.io/en/blog/</loc>
+    <lastmod>2021-07-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="de"
-                href="https://hoangtrungkien210895.github.io/de/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="dy"
-                href="https://hoangtrungkien210895.github.io/dy/tags/"
+                href="https://hoangtrungkien210895.github.io/de/blog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://hoangtrungkien210895.github.io/en/tags/"
+                href="https://hoangtrungkien210895.github.io/en/blog/"
                 />
   </url><url>
     <loc>https://hoangtrungkien210895.github.io/en/tags/css/</loc>
@@ -167,6 +118,29 @@
   </url><url>
     <loc>https://hoangtrungkien210895.github.io/en/blog/math-typesetting/</loc>
     <lastmod>2021-07-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hoangtrungkien210895.github.io/en/tags/</loc>
+    <lastmod>2021-07-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://hoangtrungkien210895.github.io/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="de"
+                href="https://hoangtrungkien210895.github.io/de/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="dy"
+                href="https://hoangtrungkien210895.github.io/dy/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://hoangtrungkien210895.github.io/en/tags/"
+                />
   </url><url>
     <loc>https://hoangtrungkien210895.github.io/en/blog/placeholder-text/</loc>
     <lastmod>2021-07-13T00:00:00+00:00</lastmod>
