@@ -2,28 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hoangtrungkien210895.github.io/fr/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://hoangtrungkien210895.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hoangtrungkien210895.github.io/de/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="dy"
-                href="https://hoangtrungkien210895.github.io/dy/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://hoangtrungkien210895.github.io/fr/"
-                />
-  </url><url>
     <loc>https://hoangtrungkien210895.github.io/fr/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -32,18 +10,20 @@
                 />
     <xhtml:link
                 rel="alternate"
-                hreflang="de"
-                href="https://hoangtrungkien210895.github.io/de/categories/"
+                hreflang="fr"
+                href="https://hoangtrungkien210895.github.io/fr/categories/"
                 />
+  </url><url>
+    <loc>https://hoangtrungkien210895.github.io/fr/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="dy"
-                href="https://hoangtrungkien210895.github.io/dy/categories/"
+                hreflang="en"
+                href="https://hoangtrungkien210895.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://hoangtrungkien210895.github.io/fr/categories/"
+                href="https://hoangtrungkien210895.github.io/fr/"
                 />
   </url><url>
     <loc>https://hoangtrungkien210895.github.io/fr/tags/</loc>
@@ -51,16 +31,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://hoangtrungkien210895.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="de"
-                href="https://hoangtrungkien210895.github.io/de/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="dy"
-                href="https://hoangtrungkien210895.github.io/dy/tags/"
                 />
     <xhtml:link
                 rel="alternate"
