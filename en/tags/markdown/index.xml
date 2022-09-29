@@ -6,7 +6,16 @@
     <description>Recent content in markdown on Hoang Kien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 22 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring boot - Annotation Transaction</title>
+      <link>https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/</link>
+      <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/</guid>
+      <description>Mở đầu: Lời đầu : Hiện tại đối với anh em sử dụng java thì Spring framework là một trong những nền tảng phổ biến nhất để có thể xây dựng các chương trình server-backend đáp ứng nhu cầu phát triển nhanh cũng như ứng dụng linh hoạt . Khi phát triển server-backend thì nhu cầu kết nối quản lý đến database cũng là một nhu cầu không thể thiếu được khi xây dựng một server-backend .</description>
+    </item>
+    
     <item>
       <title>Vạn Vật Internet</title>
       <link>https://hoangtrungkien210895.github.io/en/blog/van-vat-internet/</link>

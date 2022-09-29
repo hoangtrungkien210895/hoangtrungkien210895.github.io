@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.svg">
+
+  <title>
+  Spring boot - Annotation Transaction - Hoang Kien
+  </title>
+  <meta name="description" content="Transaction khi sử dụng trong springboot-hibernate" />
+  <meta name="author" content="Hoàng Kiên" />
+  <meta name="generator" content="Hugo 0.103.1" /><link
+    rel="stylesheet"
+    href="https://hoangtrungkien210895.github.io/css/styles.min.d0d4c800e79e2fd6f2d685b4a1c21ce1dd95fe827412571175713a62033f063a.css"
+    integrity="sha256-0NTIAOeeL9by1oW0ocIc4d2V/oJ0ElcRdXE6YgM/Bjo="
+  />
+  
+  
+
+  <meta property="og:title" content="Spring boot - Annotation Transaction" />
+<meta property="og:description" content="Transaction khi sử dụng trong springboot-hibernate" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-09-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-28T00:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring boot - Annotation Transaction"/>
+<meta name="twitter:description" content="Transaction khi sử dụng trong springboot-hibernate"/>
+
+  <meta itemprop="name" content="Spring boot - Annotation Transaction">
+<meta itemprop="description" content="Transaction khi sử dụng trong springboot-hibernate"><meta itemprop="datePublished" content="2022-09-28T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-09-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1466">
+<meta itemprop="keywords" content="markdown,text," />
+
+  
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://hoangtrungkien210895.github.io/en/" class="capitalize font-extrabold text-2xl">
+    
+    <img src="/home2.jpeg" alt="Hoang Kien" class="h-8 max-w-full" />
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/en/blog">Blog của Kiên</a></li>
+    
+    <li><a href="/en/page/about/">About&#39;s Kiên</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+    </li>
+    
+    
+
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="toggle-dark-mode inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="5" x2="12" y2="5.01" />
+          <line x1="17" y1="7" x2="17" y2="7.01" />
+          <line x1="19" y1="12" x2="19" y2="12.01" />
+          <line x1="17" y1="17" x2="17" y2="17.01" />
+          <line x1="12" y1="19" x2="12" y2="19.01" />
+          <line x1="7" y1="17" x2="7" y2="17.01" />
+          <line x1="5" y1="12" x2="5" y2="12.01" />
+          <line x1="7" y1="7" x2="7" y2="7.01" />
+        </svg>
+      </span>
+    </li>
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="/image001.jpg" class="rounded-lg shadow-sm w-10/12 object-contain" />
+    
+    <div class="absolute top-5 right-50 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+      
+  
+    September 28, 2022
+  
+
+
+    </div>
+    
+  </div>
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">Spring boot - Annotation Transaction</h1>
+    
+    <h5 class="text-sm flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      Posted on 
+  
+    September 28, 2022
+  
+
+
+      
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      7&nbsp;minutes
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      1466&nbsp;words
+      
+        
+      
+    </h5>
+    
+
+    <h3>Mở đầu:</h3>
+<p>Lời đầu : Hiện tại đối với anh em sử dụng java thì Spring framework là một trong những nền tảng phổ biến nhất
+để có thể xây dựng các chương trình server-backend đáp ứng nhu cầu phát triển nhanh cũng như ứng dụng linh hoạt . Khi phát triển server-backend thì nhu cầu kết nối quản lý đến database cũng là một nhu cầu không thể thiếu được khi xây dựng một server-backend . Vậy hôm nay mình muốn chia sẻ cách thức để một chương trình server-springboot sử dụng để &ldquo;liên lạc&rdquo; với database thông qua jpa - hibernate theo một cách flow-to-flow .</p>
+<p>Mục đích : Đưa ra ý tưởng cụ thể về cách thức hoạt động của spring-jpa dựa trên những concept về datasource , connection pool , spring aop proxy ,  đặc biệt @transaction anotation ( commit , rollback, isolation) theo flow-to-flow</p>
+<h3>Ý tưởng spring thực hiện :</h3>
+ Ý tưởng để có thể thực hiện được jpa-hibernate trên springboot:
+<ul>
+<li>B1:  Ta có khái niệm Connection pool va dataSource ( Connection pool sẽ lấy các connection cần  thiết từ dataSource và quản lý nó trong pool ) . Mỗi khi có yêu cầu sử dụng connection ( vd : khi call api lấy ra thông tin  ) thì sẽ được cấp phát từ Connection pool.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Configuration
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DataSourceConfiguration</span> <span style="color:#8be9fd;font-style:italic">extends</span> HikariConfig <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> HikariDataSource dataSource<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Bean<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;dataSource&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    @ConfigurationProperties<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;spring.datasource.hikari.mariadb&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> HikariDataSource <span style="color:#50fa7b">dataSource</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        dataSource <span style="color:#ff79c6">=</span> DataSourceBuilder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">type</span><span style="color:#ff79c6">(</span>HikariDataSource<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">).</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> dataSource<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">driver</span><span style="color:#ff79c6">-</span>class<span style="color:#ff79c6">-</span>name<span style="color:#ff79c6">=</span>org<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">jdbc</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">Driver</span>
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">jdbc</span><span style="color:#ff79c6">-</span>url<span style="color:#ff79c6">=</span>jdbc<span style="color:#ff79c6">:</span>mariadb<span style="color:#ff79c6">:</span><span style="color:#6272a4">//database-maria-server.mariadb.database.azure.com:3306/ebanking_theme?useUnicode=yes&amp;characterEncoding=UTF-8
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">username</span><span style="color:#ff79c6">=</span>ebanking_user@database<span style="color:#ff79c6">-</span>maria<span style="color:#ff79c6">-</span>server
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">password</span><span style="color:#ff79c6">=</span>StrongPassword<span style="color:#ff79c6">!</span>
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">minimum</span><span style="color:#ff79c6">-</span>idle<span style="color:#ff79c6">=</span>5
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">maximum</span><span style="color:#ff79c6">-</span>pool<span style="color:#ff79c6">-</span>size<span style="color:#ff79c6">=</span>20
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">idle</span><span style="color:#ff79c6">-</span>timeout<span style="color:#ff79c6">=</span>30000
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">max</span><span style="color:#ff79c6">-</span>lifetime<span style="color:#ff79c6">=</span>175000
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">connection</span><span style="color:#ff79c6">-</span>timeout<span style="color:#ff79c6">=</span>30000
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">pool</span><span style="color:#ff79c6">-</span>name<span style="color:#ff79c6">=</span>MariaDBHikariCP
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">mariadb</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">auto</span><span style="color:#ff79c6">-</span>commit<span style="color:#ff79c6">=</span><span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>spring<span style="color:#ff79c6">.</span><span style="color:#50fa7b">datasource</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span>com<span style="color:#ff79c6">.</span><span style="color:#50fa7b">zaxxer</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">hikari</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">HikariDataSource</span></span></span></code></pre></div>
+<p>B2: Ta có khái niệm sử dụng @Transactional . (tương đương việc bắt đầu một transaction trong database và lấy ra 1 connection từ connection pool)</p>
+<p><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//ví dụ 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    @Autowired
+</span></span><span style="display:flex;"><span>    LoyaltyRepo loyaltyRepo<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@Transactional
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> ResponseThanhToan <span style="color:#50fa7b">thanhToan</span><span style="color:#ff79c6">(</span>RequestThanhToan req<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">///.. các logic phải thực hiện gồm java code xử lý và CRUD trong database
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// exp: loyaltyRepo.find()
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">}</span></span></span></code></pre></div>
+Vậy @Transactional hoạt động như nào khi đặt trên 1 menthod?</p>
+<p>Step1 : Khi khởi động spring boot sử dụng java reflection để phát hiện ra các component bean chúng ta khai báo và load chúng vào bean container</p>
+<p>Step2: Khi khởi tạo component bean chứa  @Transactional trên menthod -&gt; spring boot biết được đây là class có chứa 1 menthod sử dụng @Transactional -&gt; spring boot sử dụng Spring AOP chèn thêm các hàm xử lý vào trước và sau khi gọi đến menthod thực sự .</p>
+<p>Note: Spring AOP được biết đến trong Core Technologies của spring framework được hình thành trên nền tảng java reflect proxy ( JDK dynamic proxy) or a CGLIB proxy</p>
+<p><a href="https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/aop.html#aop-understanding-aop-proxies" target="_blank" rel="noopener">https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/aop.html#aop-understanding-aop-proxies</a>
+ .</p>
+<p>Ta sẽ có thể tưởng tượng như này spring aop sẽ chèn các logic đi kèm với businessLogic(). Trong đó businessLogic() chính là menthod chúng ta đặt @Transactional:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>UserTransaction utx <span style="color:#ff79c6">=</span> entityManager<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getTransaction</span><span style="color:#ff79c6">();</span> 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">{</span> 
+</span></span><span style="display:flex;"><span>    utx<span style="color:#ff79c6">.</span><span style="color:#50fa7b">begin</span><span style="color:#ff79c6">();</span> 
+</span></span><span style="display:flex;"><span>    businessLogic<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    utx<span style="color:#ff79c6">.</span><span style="color:#50fa7b">commit</span><span style="color:#ff79c6">();</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span> <span style="color:#ff79c6">catch</span><span style="color:#ff79c6">(</span>Exception ex<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span> 
+</span></span><span style="display:flex;"><span>    utx<span style="color:#ff79c6">.</span><span style="color:#50fa7b">rollback</span><span style="color:#ff79c6">();</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">throw</span> ex<span style="color:#ff79c6">;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span> </span></span></code></pre></div>
+<p>Như vậy trước khi ta call tới menthod thì việc xử lý lấy connection từ connection pool đã được spring aop thực hiện.
+Và sau khi xử lý thì việc commit transaction và roll back cũng đã được gọi sau khi menthod chính được gọi.</p>
+<p>B4: Khi ta dùng Repository để CURD  database bên trong bản chất là sử dụng connection lấy ra từ @Transactional và thực hiện statement sql.</p>
+<p>Ta có thể tạo custom repository như sau:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Repository
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoyatyRepoCusImpl</span> <span style="color:#8be9fd;font-style:italic">implements</span> LoyatyRepoCus <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @PersistenceContext
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> EntityManager entityManager<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Override
+</span></span><span style="display:flex;"><span>    @Transactional
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">getPessimisticLockRow</span><span style="color:#ff79c6">(</span>RequestThanhToan req<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        StringBuilder sqlBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> StringBuilder<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>        sqlBuilder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34; SELECT *  FROM LOYALTY WHERE id = :id FOR UPDATE NOWAIT &#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        Query query <span style="color:#ff79c6">=</span> entityManager<span style="color:#ff79c6">.</span><span style="color:#50fa7b">createNativeQuery</span><span style="color:#ff79c6">(</span>sqlBuilder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>        query<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setParameter</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">,</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>        NativeQueryImpl nativeQuery <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>NativeQueryImpl<span style="color:#ff79c6">)</span> query<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>        nativeQuery<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getResultList</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span></span></span></code></pre></div>
+<h3>Phần demo :</h3>
+<p>Để có một cách thức tiếp cận vấn đề theo flow  mình đưa ra bài toán giả định: Phát triển ứng dụng quản lý điểm loyalty. Thực hiện xây dựng 1 restApi để có thể thanh toán cho điểm loyalty cho một khách hàng dựa trên số điểm khách hàng có .</p>
+<p>Có 2 kịch bản đưa ra :</p>
+<ul>
+<li>Kịch bản 1  bút toán thành công:
+<ul>
+<li>hệ thống nhận yêu cầu thanh toán điểm -&gt; Ghi nhận đang bắt đầu thanh toán cho KH -&gt; check điểm dư khả dụng khách hàng thành công-&gt; lưu yêu cầu thanh toán -&gt; trừ điểm khách hàng -&gt; commit transaction database -&gt;  trả về thành công</li>
+</ul>
+</li>
+<li>Kịch bản 2 bút toán thất bại:
+<ul>
+<li>hệ thống nhận yêu cầu thanh toán điểm -&gt; Ghi nhận đang bắt đầu thanh toán cho KH -&gt; check điểm dư khả dụng khách hàng thất bại -&gt; throw exception -&gt; rollback transaction database lại toàn bộ bút toán đã được thực hiện trong database của transaction này.</li>
+</ul>
+</li>
+</ul>
+<h4>Chuẩn bị :</h4>
+<p>Xây dựng project cho bài toán giả định :</p>
+<p>DataBase:</p>
+<p>bảng LOYALTY chứa thông tin live Số điểm KH</p>
+<p>bảng HIS_LOYALTY chứa thông tin mỗi lần thanh toán</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">CREATE</span> <span style="color:#ff79c6">TABLE</span> ebanking_theme.LOYALTY (
+</span></span><span style="display:flex;"><span>                                                       ID <span style="color:#8be9fd;font-style:italic">VARCHAR</span>(<span style="color:#bd93f9">40</span>) <span style="color:#ff79c6">PRIMARY</span> <span style="color:#ff79c6">key</span> <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>                                                       SO_DIEM_LOYALTY <span style="color:#8be9fd;font-style:italic">int</span> <span style="color:#ff79c6">DEFAULT</span> <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>                                                       TRANG_THAI_TAI_KHOAN <span style="color:#8be9fd;font-style:italic">VARCHAR</span>(<span style="color:#bd93f9">40</span>) ,
+</span></span><span style="display:flex;"><span>                                                       UPDATED_DATE datetime                                                   
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">CREATE</span> <span style="color:#ff79c6">TABLE</span> ebanking_theme.HIS_LOYALTY (
+</span></span><span style="display:flex;"><span>                                                       ID <span style="color:#8be9fd;font-style:italic">VARCHAR</span>(<span style="color:#bd93f9">40</span>) <span style="color:#ff79c6">PRIMARY</span> <span style="color:#ff79c6">key</span> <span style="color:#ff79c6">not</span> <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>                                                       NOI_DUNG <span style="color:#8be9fd;font-style:italic">VARCHAR</span>(<span style="color:#bd93f9">500</span>) ,
+</span></span><span style="display:flex;"><span>                                                       UPDATED_DATE datetime                                                   
+</span></span><span style="display:flex;"><span>);</span></span></code></pre></div>
+<p>B1: xây dựng controller</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@RestController
+</span></span><span style="display:flex;"><span>@RequestMapping<span style="color:#ff79c6">(</span>value <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span> <span style="color:#f1fa8c">&#34;/loyalty-ms&#34;</span> <span style="color:#ff79c6">})</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoyaltyController</span>  <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Autowired
+</span></span><span style="display:flex;"><span>    LoyaltyService loyaltyService<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @RequestMapping<span style="color:#ff79c6">(</span>value <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/loyalty-thanhtoan&#34;</span><span style="color:#ff79c6">,</span> method <span style="color:#ff79c6">=</span> RequestMethod<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POST</span><span style="color:#ff79c6">,</span> produces <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> ResponseThanhToan <span style="color:#50fa7b">loyalty</span><span style="color:#ff79c6">(</span>@RequestBody RequestThanhToan req<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        ResponseThanhToan res <span style="color:#ff79c6">=</span> loyaltyService<span style="color:#ff79c6">.</span><span style="color:#50fa7b">thanhToan</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> res<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @RequestMapping<span style="color:#ff79c6">(</span>value <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;/get-list-loyalty&#34;</span><span style="color:#ff79c6">,</span> method <span style="color:#ff79c6">=</span> RequestMethod<span style="color:#ff79c6">.</span><span style="color:#50fa7b">POST</span><span style="color:#ff79c6">,</span> produces <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;application/json&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> List<span style="color:#ff79c6">&lt;</span>Loyalty<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">list</span><span style="color:#ff79c6">(</span>@RequestBody RequestThanhToan req<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#ff79c6">&lt;</span>Loyalty<span style="color:#ff79c6">&gt;</span> res <span style="color:#ff79c6">=</span> loyaltyService<span style="color:#ff79c6">.</span><span style="color:#50fa7b">list</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> res<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span></span></span></code></pre></div>
+<p>B2: xây dựng tầng service nơi thực hiện bút toán nơi quyết định commit hay rollback transaction</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>@Service
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoyaltyService</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Autowired
+</span></span><span style="display:flex;"><span>    LoyaltyRepo loyaltyRepo<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Autowired
+</span></span><span style="display:flex;"><span>    LoyaltyHisRepo loyaltyHisRepo<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Transactional<span style="color:#ff79c6">(</span>rollbackOn <span style="color:#ff79c6">=</span> Exception<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> ResponseThanhToan <span style="color:#50fa7b">thanhToan</span><span style="color:#ff79c6">(</span>RequestThanhToan req<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// bảo đảm cho việc khi update 1 bản ghi quan trọng ta sử dụng phương pháp khóa bi quan(Pessimistic Locking )
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// để cho không thằng connection nào có thể thao tác update , delete bản ghi trong tg server thanh toan xu ly
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// SELECT *  FROM LOYALTY WHERE id = &#39;01b293a0-c290-4ee5-96ff-40baafb2897a&#39; FOR UPDATE
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        loyaltyRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getPessimisticLockRow</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        HisLoyalty his <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HisLoyalty<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>        his<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setNoiDung</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">()+</span> <span style="color:#f1fa8c">&#34; bat dau thuc hien thanh toan&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        his<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setUpdatedDate</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Date<span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>        loyaltyHisRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">save</span><span style="color:#ff79c6">(</span>his<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        loyaltyHisRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">flush</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//tim kiem thông tin loyalty tương ứng
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Loyalty loyalty <span style="color:#ff79c6">=</span> loyaltyRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">findById</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">()).</span><span style="color:#50fa7b">orElse</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">long</span> sodiemHienTai <span style="color:#ff79c6">=</span> loyalty<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSoDiemLoyaty</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span><span style="color:#ff79c6">(</span>sodiemHienTai<span style="color:#ff79c6">&lt;</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSoDiemThanhToan</span><span style="color:#ff79c6">()){</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//throw exception để roll back
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> Exception<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;So diem du khong hop le&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span><span style="color:#ff79c6">else</span><span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// thực hiện lưu lịch sử giao dich
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            his<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setNoiDung</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">()+</span> <span style="color:#f1fa8c">&#34; da thuc hien thanh toan:&#34;</span><span style="color:#ff79c6">+</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSoDiemThanhToan</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>            his<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setUpdatedDate</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Date<span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>            loyaltyHisRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">save</span><span style="color:#ff79c6">(</span>his<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>            loyaltyHisRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">flush</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// flush() khi cần thiết nó sẽ tự flush khi thực hiện 1 câu lệnh sql mới,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// hoặc  commit  khi chạy hết function
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//thuc hien tru diem
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#8be9fd">long</span> soDiemConlai<span style="color:#ff79c6">=</span> sodiemHienTai<span style="color:#ff79c6">-</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSoDiemThanhToan</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>            loyalty<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setSoDiemLoyaty</span><span style="color:#ff79c6">(</span>soDiemConlai<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>            loyaltyRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">save</span><span style="color:#ff79c6">(</span>loyalty<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            Loyalty loyaltyNow <span style="color:#ff79c6">=</span> loyaltyRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">findById</span><span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">()).</span><span style="color:#50fa7b">orElse</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">null</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>            System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Gia tri moi nhat:&#34;</span><span style="color:#ff79c6">+</span>loyaltyNow<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> ResponseThanhToan<span style="color:#ff79c6">(</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">(),</span><span style="color:#f1fa8c">&#34;Thanh Cong&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Transactional<span style="color:#ff79c6">(</span>rollbackOn <span style="color:#ff79c6">=</span> Exception<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> List<span style="color:#ff79c6">&lt;</span>Loyalty<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">list</span><span style="color:#ff79c6">(</span>RequestThanhToan req<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#ff79c6">&lt;</span>Loyalty<span style="color:#ff79c6">&gt;</span> list <span style="color:#ff79c6">=</span> loyaltyRepo<span style="color:#ff79c6">.</span><span style="color:#50fa7b">findAll</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> list<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span></span></span></code></pre></div>
+<p>B3: xây dựng repo custom query raw</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Repository
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">LoyatyRepoCusImpl</span> <span style="color:#8be9fd;font-style:italic">implements</span> LoyatyRepoCus <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @PersistenceContext
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> EntityManager entityManager<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Override
+</span></span><span style="display:flex;"><span>    @Transactional
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">getPessimisticLockRow</span><span style="color:#ff79c6">(</span>RequestThanhToan req<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> Exception <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        StringBuilder sqlBuilder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> StringBuilder<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>        sqlBuilder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">append</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34; SELECT *  FROM LOYALTY WHERE id = :id FOR UPDATE NOWAIT &#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        Query query <span style="color:#ff79c6">=</span> entityManager<span style="color:#ff79c6">.</span><span style="color:#50fa7b">createNativeQuery</span><span style="color:#ff79c6">(</span>sqlBuilder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>        query<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setParameter</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">,</span>req<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getId</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>        NativeQueryImpl nativeQuery <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>NativeQueryImpl<span style="color:#ff79c6">)</span> query<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>        nativeQuery<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getResultList</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;ok&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span></span></span></code></pre></div>
+<p><strong>Demo hình ảnh cho kịch bản thành công :</strong></p>
+<p>(1) hệ thống nhận yêu cầu thanh toán 1 điểm loyalty -&gt; (2)Ghi nhận đang bắt đầu thanh toán cho KH -&gt; (3)check điểm dư khả dụng khách hàng thành công-&gt; (4)lưu yêu cầu thanh toán -&gt; (5)trừ điểm khách hàng -&gt; (6)commit transaction database -&gt; (7) trả về thành công</p>
+<p>Hình ảnh**</p>
+<p>(2) Ghi nhận đang bắt đầu thanh toán cho KH
+<img src="/1.png" alt="Placeholder">
+Ghi nhận id: fea98319-5774-4837-a29f-9afbdc1da4af thông tin thanh toán và kiểm tra KH đang có 191 điểm
+<img src="/4.png" alt="Placeholder">
+<img src="/2.png" alt="Placeholder"></p>
+<p>(6) sau khi commit transactioon update lại bản ghi fea98319-5774-4837-a29f-9afbdc1da4af và trừ diểm KH thành 190</p>
+<p><img src="/2-k.png" alt="Placeholder">
+<img src="/3.png" alt="Placeholder"></p>
+<p><strong>Demo hình ảnh cho kịch bản thất bại :</strong></p>
+<p>(1) hệ thống nhận yêu cầu thanh toán điểm -&gt; (2) Ghi nhận đang bắt đầu thanh toán cho KH -&gt; (3) check điểm dư khả dụng khách hàng thất bại -&gt; (4)throw exception rollback transaction database lại toàn bộ bút toán đã được thực hiện trong database của transaction này.</p>
+<p>Hình ảnh**</p>
+<p>(2) Ghi nhận đang bắt đầu thanh toán cho KH với id : 9c9c653c-8e49-477e-a19b-8d046b68e9f8
+<img src="/7.png" alt="Placeholder"></p>
+<p>(4)throw exception rollback transaction database .(roolback id: 9c9c653c-8e49-477e-a19b-8d046b68e9f8 )
+<img src="/8.png" alt="Placeholder"></p>
+<p><img src="/6.png" alt="Placeholder"></p>
+<p>Kết luận :</p>
+<p>1:Khi sử dụng @Transactional phải có mục đích cụ thể vì nó đại diện cho cho việc lấy 1 connection từ connection pool</p>
+<p>2:Không phải cứ có @Transactional là sẽ lấy 1 connection từ pool ( với giá trị mặc định @Transactional là propagation = Propagation.REQUIRES sẽ chỉ lấy 1 conenction từ hàm đặt transaction đầu tiên . nếu bên trong có khai báo @Transactional thì sẽ dùng cùng 1 connection  )</p>
+<p>Hoàng Kiên 22/09/2022</p>
+
+
+  </article><div class="bg-blue-100 dark:bg-gray-900">
+  <div class="container px-6 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div>
+      <div class="text-2xl font-bold mb-2">Follow me</div>
+      <p class="opacity-60">Theo dõi group trên facebook của mình</p>
+    </div>
+    <ul class="flex justify-center gap-4">
+      
+      <li>
+        <a
+          href="https://www.facebook.com/groups/1058223478229630"
+          target="_blank"
+          rel="noopener"
+          aria-label="facebook"
+          class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         version="1.0" x="0px" y="0px" 
+         width="50" 
+         height="50" 
+         viewBox="0 0 50 50" 
+         class="icon icons8-Facebook-Filled" >   
+          <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path>
+        </svg>
+
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    Copyright © 2021 - Katheryn Fox · All rights reserved
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+<script>
+  
+  const darkmode = document.querySelector('.toggle-dark-mode');
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkmode', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('darkmode', 'dark')
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener('click', toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem('darkmode');
+  const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  if (darkStorage && darkStorage === 'dark') {
+    toggleDarkMode();
+  }
+</script>
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
+</body>
+</html>
