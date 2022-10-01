@@ -6,7 +6,16 @@
     <description>Recent content in Blog on Hoang Kien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transaction isolation and Locking Database</title>
+      <link>https://hoangtrungkien210895.github.io/en/blog/transaction-isolation-and-locking-database/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtrungkien210895.github.io/en/blog/transaction-isolation-and-locking-database/</guid>
+      <description>Mở đầu: Lời đầu : Như các bạn biết với mọi chương trình thì việc lưu và truy xuất thông tin là một việc vô cùng quan trọng . Việc lưu và truy xuất thông tin được bắt nguồn từ việc lưu và đọc các thông tin trên các file trên máy tính . Dần dần hiểu được tầm quan trọng của việc lưu và truy xuất , Chúng ta phát triển ra những chương trình để quản lý lưu và truy xuất thông tin và chúng ta gọi nó là &amp;ldquo;Database&amp;rdquo; .</description>
+    </item>
+    
     <item>
       <title>Spring boot - Annotation Transaction</title>
       <link>https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/</link>

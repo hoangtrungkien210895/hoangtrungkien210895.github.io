@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transaction on Hoang Kien</title>
+    <link>https://hoangtrungkien210895.github.io/en/tags/transaction/</link>
+    <description>Recent content in Transaction on Hoang Kien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/tags/transaction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Transaction isolation and Locking Database</title>
+      <link>https://hoangtrungkien210895.github.io/en/blog/transaction-isolation-and-locking-database/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtrungkien210895.github.io/en/blog/transaction-isolation-and-locking-database/</guid>
+      <description>Mở đầu: Lời đầu : Như các bạn biết với mọi chương trình thì việc lưu và truy xuất thông tin là một việc vô cùng quan trọng . Việc lưu và truy xuất thông tin được bắt nguồn từ việc lưu và đọc các thông tin trên các file trên máy tính . Dần dần hiểu được tầm quan trọng của việc lưu và truy xuất , Chúng ta phát triển ra những chương trình để quản lý lưu và truy xuất thông tin và chúng ta gọi nó là &amp;ldquo;Database&amp;rdquo; .</description>
+    </item>
+    
+    <item>
+      <title>Spring boot - Annotation Transaction</title>
+      <link>https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/</link>
+      <pubDate>Wed, 28 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/</guid>
+      <description>Mở đầu: Lời đầu : Hiện tại đối với anh em sử dụng java thì Spring framework là một trong những nền tảng phổ biến nhất để có thể xây dựng các chương trình server-backend đáp ứng nhu cầu phát triển nhanh cũng như ứng dụng linh hoạt . Khi phát triển server-backend thì nhu cầu kết nối quản lý đến database cũng là một nhu cầu không thể thiếu được khi xây dựng một server-backend .</description>
+    </item>
+    
+  </channel>
+</rss>

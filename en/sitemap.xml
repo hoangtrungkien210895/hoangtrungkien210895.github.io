@@ -3,10 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hoangtrungkien210895.github.io/en/blog/</loc>
-    <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hoangtrungkien210895.github.io/en/</loc>
-    <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -18,14 +18,14 @@
                 href="https://hoangtrungkien210895.github.io/en/"
                 />
   </url><url>
-    <loc>https://hoangtrungkien210895.github.io/en/tags/markdown/</loc>
-    <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+    <loc>https://hoangtrungkien210895.github.io/en/tags/isolation/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/</loc>
-    <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+    <loc>https://hoangtrungkien210895.github.io/en/tags/locking/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hoangtrungkien210895.github.io/en/tags/</loc>
-    <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -37,8 +37,23 @@
                 href="https://hoangtrungkien210895.github.io/en/tags/"
                 />
   </url><url>
-    <loc>https://hoangtrungkien210895.github.io/en/tags/text/</loc>
+    <loc>https://hoangtrungkien210895.github.io/en/tags/transaction/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hoangtrungkien210895.github.io/en/blog/transaction-isolation-and-locking-database/</loc>
+    <lastmod>2022-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hoangtrungkien210895.github.io/en/blog/transaction-springboot/</loc>
     <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hoangtrungkien210895.github.io/en/tags/springboot/</loc>
+    <lastmod>2022-09-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hoangtrungkien210895.github.io/en/tags/markdown/</loc>
+    <lastmod>2022-09-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hoangtrungkien210895.github.io/en/tags/text/</loc>
+    <lastmod>2022-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hoangtrungkien210895.github.io/en/blog/van-vat-internet/</loc>
     <lastmod>2022-09-22T00:00:00+00:00</lastmod>
