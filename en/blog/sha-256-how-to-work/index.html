@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.jpeg">
+
+  <title>
+  Thuật toán băm là gì ?  Cách thức hoạt động của thuật toán   - Hoang Kien
+  </title>
+  <meta name="description" content=" Thuật toán băm là gì ? Cách thức hoạt động của thuật toán  " />
+  <meta name="author" content="Hoàng Kiên" />
+  <meta name="generator" content="Hugo 0.103.1" /><link
+    rel="stylesheet"
+    href="https://hoangtrungkien210895.github.io/css/styles.min.2f015ac763a55747a6d6e8fca987c500f20b660aae267cc780ee9ea56317bdf4.css"
+    integrity="sha256-LwFax2OlV0em1uj8qYfFAPILZgquJnzHgO6epWMXvfQ="
+  />
+  
+  
+
+  <meta property="og:title" content="Thuật toán băm là gì ?  Cách thức hoạt động của thuật toán  " />
+<meta property="og:description" content=" Thuật toán băm là gì ? Cách thức hoạt động của thuật toán  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hoangtrungkien210895.github.io/en/blog/sha-256-how-to-work/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-10-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-03T00:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Thuật toán băm là gì ?  Cách thức hoạt động của thuật toán  "/>
+<meta name="twitter:description" content=" Thuật toán băm là gì ? Cách thức hoạt động của thuật toán  "/>
+
+  <meta itemprop="name" content="Thuật toán băm là gì ?  Cách thức hoạt động của thuật toán  ">
+<meta itemprop="description" content=" Thuật toán băm là gì ? Cách thức hoạt động của thuật toán  "><meta itemprop="datePublished" content="2022-10-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-10-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2439">
+<meta itemprop="keywords" content="sha256,how to work,Algorithm," />
+
+  
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://hoangtrungkien210895.github.io/en/" class="capitalize font-extrabold text-2xl">
+    
+    <img src="/home2.jpeg" alt="Hoang Kien" class="h-12 max-w-full" />
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/en/blog">Blog của Kiên</a></li>
+    
+    <li><a href="/en/page/about/">About&#39;s Kiên</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+    </li>
+    
+    
+
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="toggle-dark-mode inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="5" x2="12" y2="5.01" />
+          <line x1="17" y1="7" x2="17" y2="7.01" />
+          <line x1="19" y1="12" x2="19" y2="12.01" />
+          <line x1="17" y1="17" x2="17" y2="17.01" />
+          <line x1="12" y1="19" x2="12" y2="19.01" />
+          <line x1="7" y1="17" x2="7" y2="17.01" />
+          <line x1="5" y1="12" x2="5" y2="12.01" />
+          <line x1="7" y1="7" x2="7" y2="7.01" />
+        </svg>
+      </span>
+    </li>
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="/hash-la-gi-640.png" class="rounded-lg shadow-sm w-10/12 object-contain" />
+    
+    <div class="absolute top-5 right-50 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+      
+  
+    October 3, 2022
+  
+
+
+    </div>
+    
+  </div>
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">Thuật toán băm là gì ?  Cách thức hoạt động của thuật toán  </h1>
+    
+    <h5 class="text-sm flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      Posted on 
+  
+    October 3, 2022
+  
+
+
+      
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      12&nbsp;minutes
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      2439&nbsp;words
+      
+        
+      
+    </h5>
+    
+
+    <h3>Mở đầu:</h3>
+<p>Lời đầu : Có bao giờ bạn tự hỏi mọi thứ được vận hành như thế nào chưa ? Chắc ngày nhỏ chúng ta đã từng đặt ra vô số câu hỏi như thế rồi lại bỏ ngỏ vì chúng thực sự quá phức tạp . Bất kể những điều bạn nhìn thấy dù nó có đẹp đẽ hay xấu xí đến mức nào thì vốn dĩ chúng đều có nguyên nhân của nó ? Có câu nói nổi tiếng như này : trăm vạn hạt mưa rơi không hạt nào rơi nhầm chỗ, những người ta gặp không người nào là ngẫu nhiên. Nếu bạn đã bước vào bài viết này coi như chúng ta có duyên đi.  Hãy thử cá với mình bạn bỏ thời gian đọc hết bài viết của mình , mình sẽ chứng minh chỉ cần đủ kiên trì bạn sẽ hiểu được mọi thứ .</p>
+<hr>
+<p>Ý tưởng  thuật toán: thuật toán băm sử dụng đầu vào là một thông tin bất kì hình ảnh , từ ngữ , âm thanh được biểu diễn qua các dãy bit 0 hoặc 1 . Dựa vào input đầu vào chúng ta sẽ thông qua các phép dịch bit và toán tử logic để thay đổi nội dung của dãy bit thành một dãy bit khác theo 1 công thức cố định . Dãy bit ta nhận được sau khi biến đổi thì ta gọi đó là mã hash (mã băm).</p>
+<p>Khi ta có 1 đầu vào dữ liệu ta sẽ băm nó ra thành 1 mã băm đại diện cho đầu vào đó. ta tạm gọi đó là chữ ký của dữ liệu. Người ta sử dụng việc so sánh dữ liệu đó với chữ ký của dữ liệu để đảm bảo cho việc dữ liệu không bị thay đổi .</p>
+<p>Vậy tại sao người ta lại phải mất công nghĩ ra những việc nhàm chán đó?</p>
+<p>Giờ mình đưa ra kịch bản như này để cho bạn thấy công dụng của nó nhé.  mình và bạn nhắn tin với nhau -&gt; khi một tin nhắn đi đến đích -&gt; bạn nhận được thông điệp nội dung tin nhắn . Câu hỏi đặt ra làm sao bạn biết tin nhắn đó người gửi chính là mình và ngược lại? bạn cần một thứ gì đó để định danh thông tin trên mạng phải không nào ?
+Giờ là lúc dùng đến nó rồi : Mã băm</p>
+<p>Chúng mình quy ước với nhau mỗi lần mình gửi tin nhắn cho bạn (vd tin nhắn là &ldquo;hey you&rdquo; ) mình sẽ gửi kèm 1 mã băm( định danh đó là mình).Bằng cách băm thông tin mình gửi với một chuỗi ký tự bí mật giữa mình và bạn biết</p>
+<p>Vd: Mình khi gửi tin nhắn &ldquo;hello you&rdquo; thì mình sẽ gửi thêm 1 &ldquo;mã băm A do kiên băm&rdquo; được băm với đầu vào là : &ldquo;hey you&rdquo;+&ldquo;secret lòng tin&rdquo; .Trong đó &ldquo;secret lòng tin&rdquo; chính là chuỗi ký tự bí mật mình và bạn biết . Tin nhắn mình gửi sẽ có dạng thế này &ldquo;hey you&rdquo; và &ldquo;mã băm A do kiên băm&rdquo;</p>
+<p>Bạn nhận thông tin và mã băm đó . Bạn có &ldquo;secret lòng tin&rdquo; chính là chuỗi ký bí mật dùng chung . Bạn dùng tin nhắn &ldquo;hey you&rdquo; mình gửi + &ldquo;secret lòng tin&rdquo; Và tiếp tục băm ra thành &ldquo;mã băm A do bạn băm&rdquo; . Nếu &ldquo;mã băm A do kiên băm&rdquo; và &ldquo;mã băm A do bạn băm&rdquo;  giống nhau thì bạn có thể xác định đó là mình .</p>
+<p>Vậy khi lộ &ldquo;secret lòng tin&rdquo; thì phương thức này sẽ không còn an toàn và dễ mạo danh. Nhưng vấn đề khi thông tin bạn gửi đi qua internet thì chỉ có 2 thứ công khai . Thông tin và mã băm . trừ khi người ta có thể đảo ngược mã băm của bạn thì người ta mới lấy được &ldquo;secret lòng tin&rdquo; và người ta có thể nói cho bạn bất kì điều gì với danh nghĩa là mình.</p>
+<p>Nhưng việc từ mã băm người ta đảo ngược lại lấy thông tin đầu vào lại một điều không thể ? tại sao?</p>
+<p>ví dụ : chuyển đổi nguồn là bit 1 thành kết quả bit 0 sử dụng toán tử xor với chính nó (1 xor 1 = 0) và coi bit 0 này là  mã băm .</p>
+<p>Vậy từ kết quả 0 ta có thể suy ra bit 1 là nguồn sau khi sử dụng toán tử xor với chính nó không?</p>
+<p>Câu trả lời là &ldquo;không&rdquo; vì  nó cũng là kết quả nếu nguồn là bit 0  sử dụng toán tử xor với chính nó ( 0 xor 0 = 0 )</p>
+<p>vậy khi cố gắng suy ngược kết quả ta chỉ có thể có các &ldquo;tập kết quả khả năng là đầu vào là nguồn để tạo ra bit 0 &quot; thế đấy bit 1 đã chuyển đổi thành 0 rồi nên k thể đảo ngược được</p>
+<hr>
+<h1>Đi cùng mình việc mình băm với đầu vào là "hello world" nhé :</h1>
+<p>Bài toán đưa ra băm ký tự : &ldquo;hello world&rdquo; dùng thuật toán mã băm (SHA-256) để băm nó</p>
+<p>Quote :&ldquo;Mọi thứ trên đều được máy tính đánh cho một mã đại diện cho nó&rdquo;</p>
+<p>( để hiểu tại sao 0 và 1 lại có thể được biểu diễn được tất cả mọi thứ bạn hãy đọc : <a href="https://hoangtrungkien210895.github.io/en/blog/van-vat-internet/" target="_blank" rel="noopener">https://hoangtrungkien210895.github.io/en/blog/van-vat-internet/</a>
+
+)</p>
+<p>Bước 1 Chuyển đổi : Ta có đầu vào là &ldquo;hello world&rdquo; sau khi phiên dịch sang các bit chúng sẽ có giá trị dãy bit là :</p>
+<p>01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100</p>
+<p>( tổng số 0 và 1 nếu đếm sẽ có: 88 ký tự )</p>
+<p><img src="/sha1.png" alt="Placeholder"></p>
+<p>Bước 2 Lấp đầy : thêm vào đuôi của dãy bit &ldquo;hello world&rdquo; với bit là 1 để ngầm hiểu rằng nó là kết thúc của thông tin đầu vào chúng ta cần băm.
+Tiếp tới ta thêm các chuỗi ký tự 0 theo sau tùy ý sao cho sau khi + với 64 bit cuối đại diện cho chiều dài bit của đầu vào dữ liệu( 88 ký tự ) có độ dài chia hết cho 512.</p>
+<p>cụ thể ta có đường màu đỏ đại diện cho &ldquo;hello world&rdquo; -&gt; bit 1 xanh lá gạch chân đại diện cho kết thúc đầu vào -&gt; màu nâu đại diện cho các bit 0 được thêm -&gt; màu cam đại diện cho 64 bit nhớ có giá trị là 88 :</p>
+<p><img src="/saulapday.png" alt="Placeholder"></p>
+<p>Bước 3 Khởi tạo cứng : Định nghĩa  8 dãy dữ liệu h0 -&gt; h7 mỗi dãy 32 bit nhớ :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>h0 <span style="color:#ff79c6">=</span> 0x6a09e667 <span style="color:#ff79c6">(</span> là dãy bit được thể hiện với hệ đếm 16<span style="color:#ff79c6">:</span> 0x6a09e667 tương đương 32 bit<span style="color:#ff79c6">:</span> 01101010000010011110011001100111 <span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h1 <span style="color:#ff79c6">=</span> 0xbb67ae85 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h2 <span style="color:#ff79c6">=</span> 0x3c6ef372
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h3 <span style="color:#ff79c6">=</span> 0xa54ff53a
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h4 <span style="color:#ff79c6">=</span> 0x510e527f
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h5 <span style="color:#ff79c6">=</span> 0x9b05688c
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h6 <span style="color:#ff79c6">=</span> 0x1f83d9ab
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h7 <span style="color:#ff79c6">=</span> 0x5be0cd19 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>và định nghĩa tiếp 64 dãy dữ liệu mỗi dãy cũng là 32 bit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>k<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">..</span><span style="color:#50fa7b">63</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">:=</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0x428a2f98<span style="color:#ff79c6">,</span> 0x71374491<span style="color:#ff79c6">,</span> 0xb5c0fbcf<span style="color:#ff79c6">,</span> 0xe9b5dba5<span style="color:#ff79c6">,</span> 0x3956c25b<span style="color:#ff79c6">,</span> 0x59f111f1<span style="color:#ff79c6">,</span> 0x923f82a4<span style="color:#ff79c6">,</span> 0xab1c5ed5<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0xd807aa98<span style="color:#ff79c6">,</span> 0x12835b01<span style="color:#ff79c6">,</span> 0x243185be<span style="color:#ff79c6">,</span> 0x550c7dc3<span style="color:#ff79c6">,</span> 0x72be5d74<span style="color:#ff79c6">,</span> 0x80deb1fe<span style="color:#ff79c6">,</span> 0x9bdc06a7<span style="color:#ff79c6">,</span> 0xc19bf174<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0xe49b69c1<span style="color:#ff79c6">,</span> 0xefbe4786<span style="color:#ff79c6">,</span> 0x0fc19dc6<span style="color:#ff79c6">,</span> 0x240ca1cc<span style="color:#ff79c6">,</span> 0x2de92c6f<span style="color:#ff79c6">,</span> 0x4a7484aa<span style="color:#ff79c6">,</span> 0x5cb0a9dc<span style="color:#ff79c6">,</span> 0x76f988da<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0x983e5152<span style="color:#ff79c6">,</span> 0xa831c66d<span style="color:#ff79c6">,</span> 0xb00327c8<span style="color:#ff79c6">,</span> 0xbf597fc7<span style="color:#ff79c6">,</span> 0xc6e00bf3<span style="color:#ff79c6">,</span> 0xd5a79147<span style="color:#ff79c6">,</span> 0x06ca6351<span style="color:#ff79c6">,</span> 0x14292967<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0x27b70a85<span style="color:#ff79c6">,</span> 0x2e1b2138<span style="color:#ff79c6">,</span> 0x4d2c6dfc<span style="color:#ff79c6">,</span> 0x53380d13<span style="color:#ff79c6">,</span> 0x650a7354<span style="color:#ff79c6">,</span> 0x766a0abb<span style="color:#ff79c6">,</span> 0x81c2c92e<span style="color:#ff79c6">,</span> 0x92722c85<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0xa2bfe8a1<span style="color:#ff79c6">,</span> 0xa81a664b<span style="color:#ff79c6">,</span> 0xc24b8b70<span style="color:#ff79c6">,</span> 0xc76c51a3<span style="color:#ff79c6">,</span> 0xd192e819<span style="color:#ff79c6">,</span> 0xd6990624<span style="color:#ff79c6">,</span> 0xf40e3585<span style="color:#ff79c6">,</span> 0x106aa070<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0x19a4c116<span style="color:#ff79c6">,</span> 0x1e376c08<span style="color:#ff79c6">,</span> 0x2748774c<span style="color:#ff79c6">,</span> 0x34b0bcb5<span style="color:#ff79c6">,</span> 0x391c0cb3<span style="color:#ff79c6">,</span> 0x4ed8aa4a<span style="color:#ff79c6">,</span> 0x5b9cca4f<span style="color:#ff79c6">,</span> 0x682e6ff3<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>   0x748f82ee<span style="color:#ff79c6">,</span> 0x78a5636f<span style="color:#ff79c6">,</span> 0x84c87814<span style="color:#ff79c6">,</span> 0x8cc70208<span style="color:#ff79c6">,</span> 0x90befffa<span style="color:#ff79c6">,</span> 0xa4506ceb<span style="color:#ff79c6">,</span> 0xbef9a3f7<span style="color:#ff79c6">,</span> 0xc67178f2</span></span></code></pre></div>
+<p>Bước 4 lấp đầy tiếp :
+Với bước 2 lấp đầy ta có đầu vào là 512 bit (hình dưới)</p>
+<p><img src="/saulapday.png" alt="Placeholder"></p>
+<p>Với mỗi 32 bit đứng gần nhau ta hình thành nên  1 &ldquo;word&rdquo; (Ký hiệu là W ) vậy 512 bit trong hình ta sẽ hình thành 512/32 = 16 &ldquo;word&rdquo;</p>
+<p>Ta tiếp tục thêm bit 0 sau 512 bit ban đầu cho đến khi ta hình thành đủ 64 &ldquo;word&rdquo; gồm:</p>
+<p>16 &ldquo;word&rdquo; đến từ bước 2 và 48 &ldquo;word&rdquo; đến từ việc ta thêm bit 0 . (hình dưới)</p>
+<p><img src="/chia-bang.png" alt="Placeholder"></p>
+<p>Bước 5: Áp dụng các phép cộng và dịch bit :</p>
+<p>Đặt i bắt đầu từ 16 chạy đến 63 , với mỗi i ta thực hiện tuần tự phép tính  để gán giá trị mới cho w[i]:</p>
+<p>công thức :
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">for</span> i from 16 to 63
+</span></span><span style="display:flex;"><span>        s0 <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>15<span style="color:#ff79c6">]</span> rightrotate  7<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>15<span style="color:#ff79c6">]</span> rightrotate 18<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>15<span style="color:#ff79c6">]</span> rightshift  3<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        s1 <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>2<span style="color:#ff79c6">]</span> rightrotate 17<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>2<span style="color:#ff79c6">]</span> rightrotate 19<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>2<span style="color:#ff79c6">]</span> rightshift 10<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">:=</span> w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>16<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> s0 <span style="color:#ff79c6">+</span> w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>7<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> s1</span></span></code></pre></div></p>
+<p>hình ảnh tính toán :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">]</span> rightrotate 7<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">(</span>phép xoay bit sang phải <span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>  01101111001000000111011101101111 <span style="color:#ff79c6">-&gt;</span> 11011110110111100100000011101110
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">]</span> rightrotate 18<span style="color:#ff79c6">:(</span>phép xoay bit sang phải <span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>  01101111001000000111011101101111 <span style="color:#ff79c6">-&gt;</span> 00011101110110111101101111001000
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">]</span> rightshift 3<span style="color:#ff79c6">:</span> <span style="color:#ff79c6">(</span>phép dịch bit phải <span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>  01101111001000000111011101101111 <span style="color:#ff79c6">-&gt;</span> 00001101111001000000111011101101
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// sử dụng toán tử logic XOR (ngoại trừ hoặc)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>s0 <span style="color:#ff79c6">=</span> 11011110110111100100000011101110 XOR 00011101110110111101101111001000 XOR 00001101111001000000111011101101
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s0 <span style="color:#ff79c6">=</span> 11001110111000011001010111001011
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>14<span style="color:#ff79c6">]</span> rightrotate 17<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  00000000000000000000000000000000 <span style="color:#ff79c6">-&gt;</span> 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>14<span style="color:#ff79c6">]</span> rightrotate19<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  00000000000000000000000000000000 <span style="color:#ff79c6">-&gt;</span> 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>14<span style="color:#ff79c6">]</span> rightshift 10<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  00000000000000000000000000000000 <span style="color:#ff79c6">-&gt;</span> 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s1 <span style="color:#ff79c6">=</span> 00000000000000000000000000000000 XOR 00000000000000000000000000000000 XOR 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>s1 <span style="color:#ff79c6">=</span> 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>16<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> w<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> s0 <span style="color:#ff79c6">+</span> w<span style="color:#ff79c6">[</span>9<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> s1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>16<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> 01101000011001010110110001101100 <span style="color:#ff79c6">+</span> 11001110111000011001010111001011 <span style="color:#ff79c6">+</span> 00000000000000000000000000000000 <span style="color:#ff79c6">+</span> 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// w[16] hiểu cơ bản là 01101000011001010110110001101100 + 11001110111000011001010111001011 tương đương 1751477356 + 3470890443 = 5222367799 ( 0100110111010001110000001000110111 có 34 bit ) ta sẽ lấy 32 bit đầu tiên tính từ trái sang để gán cho w[16]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>w<span style="color:#ff79c6">[</span>16<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">=</span> 00110111010001110000001000110111</span></span></code></pre></div>
+<p>Sau khi chạy xong ta sẽ có kết quả là:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>01101000011001010110110001101100 01101111001000000111011101101111
+</span></span><span style="display:flex;"><span>01110010011011000110010010000000 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>00000000000000000000000000000000 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>00000000000000000000000000000000 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>00000000000000000000000000000000 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>00000000000000000000000000000000 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>00000000000000000000000000000000 00000000000000000000000000000000
+</span></span><span style="display:flex;"><span>00000000000000000000000000000000 00000000000000000000000001011000
+</span></span><span style="display:flex;"><span>00110111010001110000001000110111 10000110110100001100000000110001
+</span></span><span style="display:flex;"><span>11010011101111010001000100001011 01111000001111110100011110000010
+</span></span><span style="display:flex;"><span>00101010100100000111110011101101 01001011001011110111110011001001
+</span></span><span style="display:flex;"><span>00110001111000011001010001011101 10001001001101100100100101100100
+</span></span><span style="display:flex;"><span>01111111011110100000011011011010 11000001011110011010100100111010
+</span></span><span style="display:flex;"><span>10111011111010001111011001010101 00001100000110101110001111100110
+</span></span><span style="display:flex;"><span>10110000111111100000110101111101 01011111011011100101010110010011
+</span></span><span style="display:flex;"><span>00000000100010011001101101010010 00000111111100011100101010010100
+</span></span><span style="display:flex;"><span>00111011010111111110010111010110 01101000011001010110001011100110
+</span></span><span style="display:flex;"><span>11001000010011100000101010011110 00000110101011111001101100100101
+</span></span><span style="display:flex;"><span>10010010111011110110010011010111 01100011111110010101111001011010
+</span></span><span style="display:flex;"><span>11100011000101100110011111010111 10000100001110111101111000010110
+</span></span><span style="display:flex;"><span>11101110111011001010100001011011 10100000010011111111001000100001
+</span></span><span style="display:flex;"><span>11111001000110001010110110111000 00010100101010001001001000011001
+</span></span><span style="display:flex;"><span>00010000100001000101001100011101 01100000100100111110000011001101
+</span></span><span style="display:flex;"><span>10000011000000110101111111101001 11010101101011100111100100111000
+</span></span><span style="display:flex;"><span>00111001001111110000010110101101 11111011010010110001101111101111
+</span></span><span style="display:flex;"><span>11101011011101011111111100101001 01101010001101101001010100110100
+</span></span><span style="display:flex;"><span>00100010111111001001110011011000 10101001011101000000110100101011
+</span></span><span style="display:flex;"><span>01100000110011110011100010000101 11000100101011001001100000111010
+</span></span><span style="display:flex;"><span>00010001010000101111110110101101 10110000101100000001110111011001
+</span></span><span style="display:flex;"><span>10011000111100001100001101101111 01110010000101111011100000011110
+</span></span><span style="display:flex;"><span>10100010110101000110011110011010 00000001000011111001100101111011
+</span></span><span style="display:flex;"><span>11111100000101110100111100001010 11000010110000101110101100010110</span></span></code></pre></div></p>
+<p>B6: Tiếp tục chạy vòng lặp</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Khởi tạo các biến<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    a <span style="color:#ff79c6">=</span> h0
+</span></span><span style="display:flex;"><span>    b <span style="color:#ff79c6">=</span> h1
+</span></span><span style="display:flex;"><span>    c <span style="color:#ff79c6">=</span> h2
+</span></span><span style="display:flex;"><span>    d <span style="color:#ff79c6">=</span> h3
+</span></span><span style="display:flex;"><span>    e <span style="color:#ff79c6">=</span> h4
+</span></span><span style="display:flex;"><span>    f <span style="color:#ff79c6">=</span> h5
+</span></span><span style="display:flex;"><span>    g <span style="color:#ff79c6">=</span> h6
+</span></span><span style="display:flex;"><span>    h <span style="color:#ff79c6">=</span> h7
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Đặt i bắt đầu từ 0 chạy đến 63 <span style="color:#ff79c6">,</span> với mỗi i ta thực hiện tuần tự phép tính  để gán giá trị mới cho các biến a <span style="color:#ff79c6">,</span>b <span style="color:#ff79c6">,</span>c ta đã khởi tạo<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i from 0 to 63
+</span></span><span style="display:flex;"><span>        S1 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>e rightrotate 6<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>e rightrotate 11<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>e rightrotate 25<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        ch <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>e and f<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">((</span>not e<span style="color:#ff79c6">)</span> and g<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        temp1 <span style="color:#ff79c6">:=</span> h <span style="color:#ff79c6">+</span> S1 <span style="color:#ff79c6">+</span> ch <span style="color:#ff79c6">+</span> k<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>        S0 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>a rightrotate 2<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>a rightrotate 13<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>a rightrotate 22<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        maj <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>a and b<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>a and c<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>b and c<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        temp2 <span style="color:#ff79c6">=</span> S0 <span style="color:#ff79c6">+</span> maj
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        h <span style="color:#ff79c6">=</span> g
+</span></span><span style="display:flex;"><span>        g <span style="color:#ff79c6">=</span> f
+</span></span><span style="display:flex;"><span>        f <span style="color:#ff79c6">=</span> e
+</span></span><span style="display:flex;"><span>        e <span style="color:#ff79c6">=</span> d <span style="color:#ff79c6">+</span> temp1
+</span></span><span style="display:flex;"><span>        d <span style="color:#ff79c6">=</span> c
+</span></span><span style="display:flex;"><span>        c <span style="color:#ff79c6">=</span> b
+</span></span><span style="display:flex;"><span>        b <span style="color:#ff79c6">=</span> a
+</span></span><span style="display:flex;"><span>        a <span style="color:#ff79c6">=</span> temp1 <span style="color:#ff79c6">+</span> temp2</span></span></code></pre></div>
+<p>Cách tính toán :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Ta áp dụng các phép phủ định <span style="color:#ff79c6">,</span> phép dịch bit  <span style="color:#ff79c6">,</span> phép xoay bit <span style="color:#ff79c6">,</span> toán tử logic xor <span style="color:#ff79c6">,</span> 
+</span></span><span style="display:flex;"><span>và đặc biệt dấu cộng là ta cộng với modulo <span style="color:#50fa7b">32</span> <span style="color:#ff79c6">(</span>để dễ hiểu bạn chuyển đổi sang hệ số 10<span style="color:#ff79c6">.</span> 
+</span></span><span style="display:flex;"><span>sau đó cộng hệ số 10 lấy value decimal <span style="color:#ff79c6">-&gt;</span> chuyển ngược thành dãy bit sau đó lấy 32 bit đầu từ bên trái sang<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a <span style="color:#ff79c6">=</span> 0x6a09e667 <span style="color:#ff79c6">=</span> 01101010000010011110011001100111
+</span></span><span style="display:flex;"><span>b <span style="color:#ff79c6">=</span> 0xbb67ae85 <span style="color:#ff79c6">=</span> 10111011011001111010111010000101
+</span></span><span style="display:flex;"><span>c <span style="color:#ff79c6">=</span> 0x3c6ef372 <span style="color:#ff79c6">=</span> 00111100011011101111001101110010
+</span></span><span style="display:flex;"><span>d <span style="color:#ff79c6">=</span> 0xa54ff53a <span style="color:#ff79c6">=</span> 10100101010011111111010100111010
+</span></span><span style="display:flex;"><span>e <span style="color:#ff79c6">=</span> 0x510e527f <span style="color:#ff79c6">=</span> 01010001000011100101001001111111
+</span></span><span style="display:flex;"><span>f <span style="color:#ff79c6">=</span> 0x9b05688c <span style="color:#ff79c6">=</span> 10011011000001010110100010001100
+</span></span><span style="display:flex;"><span>g <span style="color:#ff79c6">=</span> 0x1f83d9ab <span style="color:#ff79c6">=</span> 00011111100000111101100110101011
+</span></span><span style="display:flex;"><span>h <span style="color:#ff79c6">=</span> 0x5be0cd19 <span style="color:#ff79c6">=</span> 01011011111000001100110100011001
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>e rightrotate 6<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  01010001000011100101001001111111 <span style="color:#ff79c6">-&gt;</span> 11111101010001000011100101001001
+</span></span><span style="display:flex;"><span>e rightrotate 11<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  01010001000011100101001001111111 <span style="color:#ff79c6">-&gt;</span> 01001111111010100010000111001010
+</span></span><span style="display:flex;"><span>e rightrotate 25<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  01010001000011100101001001111111 <span style="color:#ff79c6">-&gt;</span> 10000111001010010011111110101000
+</span></span><span style="display:flex;"><span>S1 <span style="color:#ff79c6">=</span> 11111101010001000011100101001001 XOR 01001111111010100010000111001010 XOR 10000111001010010011111110101000
+</span></span><span style="display:flex;"><span>S1 <span style="color:#ff79c6">=</span> 00110101100001110010011100101011
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>e and f<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    01010001000011100101001001111111
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&amp;</span> 10011011000001010110100010001100 <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>    00010001000001000100000000001100
+</span></span><span style="display:flex;"><span>not e<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  01010001000011100101001001111111 <span style="color:#ff79c6">-&gt;</span> 10101110111100011010110110000000
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">(</span>not e<span style="color:#ff79c6">)</span> and g<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    10101110111100011010110110000000
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&amp;</span> 00011111100000111101100110101011 <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>    00001110100000011000100110000000
+</span></span><span style="display:flex;"><span>ch <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>e and f<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">((</span>not e<span style="color:#ff79c6">)</span> and g<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">=</span> 00010001000001000100000000001100 xor 00001110100000011000100110000000
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">=</span> 00011111100001011100100110001100
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>temp1 <span style="color:#ff79c6">=</span> h <span style="color:#ff79c6">+</span> S1 <span style="color:#ff79c6">+</span> ch <span style="color:#ff79c6">+</span> k<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>temp1 <span style="color:#ff79c6">=</span> 01011011111000001100110100011001 <span style="color:#ff79c6">+</span> 00110101100001110010011100101011 <span style="color:#ff79c6">+</span> 00011111100001011100100110001100 <span style="color:#ff79c6">+</span> 01000010100010100010111110011000 <span style="color:#ff79c6">+</span> 01101000011001010110110001101100
+</span></span><span style="display:flex;"><span>temp1 <span style="color:#ff79c6">=</span> 01011011110111010101100111010100
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a rightrotate 2<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  01101010000010011110011001100111 <span style="color:#ff79c6">-&gt;</span> 11011010100000100111100110011001
+</span></span><span style="display:flex;"><span>a rightrotate 13<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  01101010000010011110011001100111 <span style="color:#ff79c6">-&gt;</span> 00110011001110110101000001001111
+</span></span><span style="display:flex;"><span>a rightrotate 22<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>  01101010000010011110011001100111 <span style="color:#ff79c6">-&gt;</span> 00100111100110011001110110101000
+</span></span><span style="display:flex;"><span>S0 <span style="color:#ff79c6">=</span> 11011010100000100111100110011001 XOR 00110011001110110101000001001111 XOR 00100111100110011001110110101000
+</span></span><span style="display:flex;"><span>S0 <span style="color:#ff79c6">=</span> 11001110001000001011010001111110
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a and b<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    01101010000010011110011001100111
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&amp;</span> 10111011011001111010111010000101 <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>    00101010000000011010011000000101
+</span></span><span style="display:flex;"><span>a and c<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    01101010000010011110011001100111
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&amp;</span> 00111100011011101111001101110010 <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>    00101000000010001110001001100010
+</span></span><span style="display:flex;"><span>b and c<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    10111011011001111010111010000101
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&amp;</span> 00111100011011101111001101110010 <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>    00111000011001101010001000000000
+</span></span><span style="display:flex;"><span>maj <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>a and b<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>a and c<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>b and c<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">=</span> 00101010000000011010011000000101 xor 00101000000010001110001001100010 xor 00111000011001101010001000000000 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">=</span> 00111010011011111110011001100111
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>temp2 <span style="color:#ff79c6">=</span> S0 <span style="color:#ff79c6">+</span> maj
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">=</span> 11001110001000001011010001111110 <span style="color:#ff79c6">+</span> 00111010011011111110011001100111
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">=</span> 00001000100100001001101011100101
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>h <span style="color:#ff79c6">=</span> 00011111100000111101100110101011
+</span></span><span style="display:flex;"><span>g <span style="color:#ff79c6">=</span> 10011011000001010110100010001100
+</span></span><span style="display:flex;"><span>f <span style="color:#ff79c6">=</span> 01010001000011100101001001111111
+</span></span><span style="display:flex;"><span>e <span style="color:#ff79c6">=</span> 10100101010011111111010100111010 <span style="color:#ff79c6">+</span> 01011011110111010101100111010100 <span style="color:#ff79c6">=</span> 00000001001011010100111100001110
+</span></span><span style="display:flex;"><span>d <span style="color:#ff79c6">=</span> 00111100011011101111001101110010
+</span></span><span style="display:flex;"><span>c <span style="color:#ff79c6">=</span> 10111011011001111010111010000101
+</span></span><span style="display:flex;"><span>b <span style="color:#ff79c6">=</span> 01101010000010011110011001100111
+</span></span><span style="display:flex;"><span>a <span style="color:#ff79c6">=</span> 01011011110111010101100111010100 <span style="color:#ff79c6">+</span> 00001000100100001001101011100101 <span style="color:#ff79c6">=</span> 01100100011011011111010010111001</span></span></code></pre></div>
+<p>B7 : Thu thành quả:</p>
+<p>sau bước 6 ta có các biến a b c d e f g h và các biến h0-&gt;h7 từ bước 3 đã được tính toán giá trị:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>h0 <span style="color:#ff79c6">=</span> 6A09E667 <span style="color:#ff79c6">=</span> 01101010000010011110011001100111
+</span></span><span style="display:flex;"><span>h1 <span style="color:#ff79c6">=</span> BB67AE85 <span style="color:#ff79c6">=</span> 10111011011001111010111010000101
+</span></span><span style="display:flex;"><span>h2 <span style="color:#ff79c6">=</span> 3C6EF372 <span style="color:#ff79c6">=</span> 00111100011011101111001101110010
+</span></span><span style="display:flex;"><span>h3 <span style="color:#ff79c6">=</span> A54FF53A <span style="color:#ff79c6">=</span> 10100101010011111111010100111010
+</span></span><span style="display:flex;"><span>h4 <span style="color:#ff79c6">=</span> 510E527F <span style="color:#ff79c6">=</span> 01010001000011100101001001111111
+</span></span><span style="display:flex;"><span>h5 <span style="color:#ff79c6">=</span> 9B05688C <span style="color:#ff79c6">=</span> 10011011000001010110100010001100
+</span></span><span style="display:flex;"><span>h6 <span style="color:#ff79c6">=</span> 1F83D9AB <span style="color:#ff79c6">=</span> 00011111100000111101100110101011
+</span></span><span style="display:flex;"><span>h7 <span style="color:#ff79c6">=</span> 5BE0CD19 <span style="color:#ff79c6">=</span> 01011011111000001100110100011001
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a <span style="color:#ff79c6">=</span> 4F434152 <span style="color:#ff79c6">=</span> 01001111010000110100000101010010
+</span></span><span style="display:flex;"><span>b <span style="color:#ff79c6">=</span> D7E58F83 <span style="color:#ff79c6">=</span> 11010111111001011000111110000011
+</span></span><span style="display:flex;"><span>c <span style="color:#ff79c6">=</span> 68BF5F65 <span style="color:#ff79c6">=</span> 01101000101111110101111101100101
+</span></span><span style="display:flex;"><span>d <span style="color:#ff79c6">=</span> 352DB6C0 <span style="color:#ff79c6">=</span> 00110101001011011011011011000000
+</span></span><span style="display:flex;"><span>e <span style="color:#ff79c6">=</span> 73769D64 <span style="color:#ff79c6">=</span> 01110011011101101001110101100100
+</span></span><span style="display:flex;"><span>f <span style="color:#ff79c6">=</span> DF4E1862 <span style="color:#ff79c6">=</span> 11011111010011100001100001100010
+</span></span><span style="display:flex;"><span>g <span style="color:#ff79c6">=</span> 71051E01 <span style="color:#ff79c6">=</span> 01110001000001010001111000000001
+</span></span><span style="display:flex;"><span>h <span style="color:#ff79c6">=</span> 870F00D0 <span style="color:#ff79c6">=</span> 10000111000011110000000011010000</span></span></code></pre></div></p>
+<p>Ta sẽ tính toán bước cuối cùng</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    h0 <span style="color:#ff79c6">=</span> h0 <span style="color:#ff79c6">+</span> a
+</span></span><span style="display:flex;"><span>    h1 <span style="color:#ff79c6">=</span> h1 <span style="color:#ff79c6">+</span> b
+</span></span><span style="display:flex;"><span>    h2 <span style="color:#ff79c6">=</span> h2 <span style="color:#ff79c6">+</span> c
+</span></span><span style="display:flex;"><span>    h3 <span style="color:#ff79c6">=</span> h3 <span style="color:#ff79c6">+</span> d
+</span></span><span style="display:flex;"><span>    h4 <span style="color:#ff79c6">=</span> h4 <span style="color:#ff79c6">+</span> e
+</span></span><span style="display:flex;"><span>    h5 <span style="color:#ff79c6">=</span> h5 <span style="color:#ff79c6">+</span> f
+</span></span><span style="display:flex;"><span>    h6 <span style="color:#ff79c6">=</span> h6 <span style="color:#ff79c6">+</span> g
+</span></span><span style="display:flex;"><span>    h7 <span style="color:#ff79c6">=</span> h7 <span style="color:#ff79c6">+</span> h
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Mã hash <span style="color:#ff79c6">=</span> h0 append h1 append h2 append h3 append h4 append h5 append h6 append h7
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">=&gt;</span> tương đương với <span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>h0 <span style="color:#ff79c6">=</span> h0 <span style="color:#ff79c6">+</span> a <span style="color:#ff79c6">=</span> 10111001010011010010011110111001 <span style="color:#ff79c6">-&gt;</span> B94D27B9 <span style="color:#ff79c6">(</span>chuyển từ hệ 2 sang hệ 16<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>h1 <span style="color:#ff79c6">=</span> h1 <span style="color:#ff79c6">+</span> b <span style="color:#ff79c6">=</span> 10010011010011010011111000001000 <span style="color:#ff79c6">-&gt;</span> 934D3E08
+</span></span><span style="display:flex;"><span>h2 <span style="color:#ff79c6">=</span> h2 <span style="color:#ff79c6">+</span> c <span style="color:#ff79c6">=</span> 10100101001011100101001011010111 <span style="color:#ff79c6">-&gt;</span> A52E52D7
+</span></span><span style="display:flex;"><span>h3 <span style="color:#ff79c6">=</span> h3 <span style="color:#ff79c6">+</span> d <span style="color:#ff79c6">=</span> 11011010011111011010101111111010 <span style="color:#ff79c6">-&gt;</span> DA7DABFA
+</span></span><span style="display:flex;"><span>h4 <span style="color:#ff79c6">=</span> h4 <span style="color:#ff79c6">+</span> e <span style="color:#ff79c6">=</span> 11000100100001001110111111100011 <span style="color:#ff79c6">-&gt;</span> C484EFE3
+</span></span><span style="display:flex;"><span>h5 <span style="color:#ff79c6">=</span> h5 <span style="color:#ff79c6">+</span> f <span style="color:#ff79c6">=</span> 01111010010100111000000011101110 <span style="color:#ff79c6">-&gt;</span> 7A5380EE
+</span></span><span style="display:flex;"><span>h6 <span style="color:#ff79c6">=</span> h6 <span style="color:#ff79c6">+</span> g <span style="color:#ff79c6">=</span> 10010000100010001111011110101100 <span style="color:#ff79c6">-&gt;</span> 9088F7AC
+</span></span><span style="display:flex;"><span>h7 <span style="color:#ff79c6">=</span> h7 <span style="color:#ff79c6">+</span> h <span style="color:#ff79c6">=</span> 11100010111011111100110111101001 <span style="color:#ff79c6">-&gt;</span> E2EFCDE9
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Mã hash <span style="color:#ff79c6">=</span> h0 append h1 append h2 append h3 append h4 append h5 append h6 append h7
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Mã hash <span style="color:#ff79c6">=</span> B94D27B9 <span style="color:#ff79c6">+</span> 934D3E08 <span style="color:#ff79c6">+</span> A52E52D7 <span style="color:#ff79c6">+</span> DA7DABFA <span style="color:#ff79c6">+</span> C484EFE3 <span style="color:#ff79c6">+</span> 7A5380EE <span style="color:#ff79c6">+</span> 9088F7AC <span style="color:#ff79c6">+</span> E2EFCDE9
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Mã hash <span style="color:#ff79c6">=</span> B94D27B9934D3E08A52E52D7DA7DABFAC484EFE37A5380EE9088F7ACE2EFCDE9</span></span></code></pre></div>
+<p>Vậy ta sẽ thu được mã hash của &ldquo;hello world&rdquo; -&gt; B94D27B9934D3E08A52E52D7DA7DABFAC484EFE37A5380EE9088F7ACE2EFCDE9</p>
+<p>Hoàng Kiên 03/10/2022</p>
+
+
+  </article><div class="bg-blue-100 dark:bg-gray-900">
+  <div class="container px-6 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div>
+      <div class="text-2xl font-bold mb-2">Follow me</div>
+      <p class="opacity-60">Theo dõi group trên facebook của mình</p>
+    </div>
+    <ul class="flex justify-center gap-4">
+      
+      <li>
+        <a
+          href="https://www.facebook.com/groups/1058223478229630"
+          target="_blank"
+          rel="noopener"
+          aria-label="facebook"
+          class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         version="1.0" x="0px" y="0px" 
+         width="50" 
+         height="50" 
+         viewBox="0 0 50 50" 
+         class="icon icons8-Facebook-Filled" >   
+          <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path>
+        </svg>
+
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    Copyright © 2021 - Katheryn Fox · All rights reserved
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+<script>
+  
+  const darkmode = document.querySelector('.toggle-dark-mode');
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkmode', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('darkmode', 'dark')
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener('click', toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem('darkmode');
+  const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  if (darkStorage && darkStorage === 'dark') {
+    toggleDarkMode();
+  }
+</script>
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
+</body>
+</html>
