@@ -33,7 +33,7 @@
   <meta itemprop="name" content="Thuật toán băm là gì ?  Cách thức hoạt động của thuật toán  ">
 <meta itemprop="description" content=" Thuật toán băm là gì ? Cách thức hoạt động của thuật toán  "><meta itemprop="datePublished" content="2022-10-03T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2022-10-03T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2439">
+<meta itemprop="wordCount" content="2440">
 <meta itemprop="keywords" content="sha256,how to work,Algorithm," />
 
   
@@ -147,7 +147,7 @@
         <line x1="12" y1="6" x2="12" y2="19" />
         <line x1="21" y1="6" x2="21" y2="19" />
       </svg>
-      2439&nbsp;words
+      2440&nbsp;words
       
         
       
@@ -163,7 +163,7 @@
 <p>Giờ mình đưa ra kịch bản như này để cho bạn thấy công dụng của nó nhé.  mình và bạn nhắn tin với nhau -&gt; khi một tin nhắn đi đến đích -&gt; bạn nhận được thông điệp nội dung tin nhắn . Câu hỏi đặt ra làm sao bạn biết tin nhắn đó người gửi chính là mình và ngược lại? bạn cần một thứ gì đó để định danh thông tin trên mạng phải không nào ?
 Giờ là lúc dùng đến nó rồi : Mã băm</p>
 <p>Chúng mình quy ước với nhau mỗi lần mình gửi tin nhắn cho bạn (vd tin nhắn là &ldquo;hey you&rdquo; ) mình sẽ gửi kèm 1 mã băm( định danh đó là mình).Bằng cách băm thông tin mình gửi với một chuỗi ký tự bí mật giữa mình và bạn biết</p>
-<p>Vd: Mình khi gửi tin nhắn &ldquo;hello you&rdquo; thì mình sẽ gửi thêm 1 &ldquo;mã băm A do kiên băm&rdquo; được băm với đầu vào là : &ldquo;hey you&rdquo;+&ldquo;secret lòng tin&rdquo; .Trong đó &ldquo;secret lòng tin&rdquo; chính là chuỗi ký tự bí mật mình và bạn biết . Tin nhắn mình gửi sẽ có dạng thế này &ldquo;hey you&rdquo; và &ldquo;mã băm A do kiên băm&rdquo;</p>
+<p>Vd: Mình khi gửi tin nhắn &ldquo;hey you&rdquo; thì mình sẽ gửi thêm 1 &ldquo;mã băm A do kiên băm&rdquo; được băm với đầu vào là : &ldquo;hey you&rdquo;+&ldquo;secret lòng tin&rdquo; .Trong đó &ldquo;secret lòng tin&rdquo; chính là chuỗi ký tự bí mật mình và bạn biết . Tin nhắn mình gửi sẽ có dạng thế này &ldquo;hey you&rdquo; và &ldquo;mã băm A do kiên băm&rdquo;</p>
 <p>Bạn nhận thông tin và mã băm đó . Bạn có &ldquo;secret lòng tin&rdquo; chính là chuỗi ký bí mật dùng chung . Bạn dùng tin nhắn &ldquo;hey you&rdquo; mình gửi + &ldquo;secret lòng tin&rdquo; Và tiếp tục băm ra thành &ldquo;mã băm A do bạn băm&rdquo; . Nếu &ldquo;mã băm A do kiên băm&rdquo; và &ldquo;mã băm A do bạn băm&rdquo;  giống nhau thì bạn có thể xác định đó là mình .</p>
 <p>Vậy khi lộ &ldquo;secret lòng tin&rdquo; thì phương thức này sẽ không còn an toàn và dễ mạo danh. Nhưng vấn đề khi thông tin bạn gửi đi qua internet thì chỉ có 2 thứ công khai . Thông tin và mã băm . trừ khi người ta có thể đảo ngược mã băm của bạn thì người ta mới lấy được &ldquo;secret lòng tin&rdquo; và người ta có thể nói cho bạn bất kì điều gì với danh nghĩa là mình.</p>
 <p>Nhưng việc từ mã băm người ta đảo ngược lại lấy thông tin đầu vào lại một điều không thể ? tại sao?</p>
@@ -174,7 +174,7 @@ Giờ là lúc dùng đến nó rồi : Mã băm</p>
 <hr>
 <h1>Đi cùng mình việc mình băm với đầu vào là "hello world" nhé :</h1>
 <p>Bài toán đưa ra băm ký tự : &ldquo;hello world&rdquo; dùng thuật toán mã băm (SHA-256) để băm nó</p>
-<p>Quote :&ldquo;Mọi thứ trên đều được máy tính đánh cho một mã đại diện cho nó&rdquo;</p>
+<p>Quote :&ldquo;Mọi thứ trên đời đều được máy tính đánh cho một mã đại diện cho nó&rdquo;</p>
 <p>( để hiểu tại sao 0 và 1 lại có thể được biểu diễn được tất cả mọi thứ bạn hãy đọc : <a href="https://hoangtrungkien210895.github.io/en/blog/van-vat-internet/" target="_blank" rel="noopener">https://hoangtrungkien210895.github.io/en/blog/van-vat-internet/</a>
 
 )</p>
