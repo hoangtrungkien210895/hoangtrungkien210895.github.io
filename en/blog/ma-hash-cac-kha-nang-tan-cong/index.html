@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.jpeg">
+
+  <title>
+  Lý luận các khả năng tấn công với mã hash? tính chất không đảo ngược ?  Ứng dụng với lưu mật khẩu với Bscrypt   - Hoang Kien
+  </title>
+  <meta name="description" content=" Các khả năng tấn công với mã hash ?  Ứng dụng với lưu mật khẩu với Bscrypt  " />
+  <meta name="author" content="Hoàng Kiên" />
+  <meta name="generator" content="Hugo 0.103.1" /><link
+    rel="stylesheet"
+    href="https://hoangtrungkien210895.github.io/css/styles.min.2f015ac763a55747a6d6e8fca987c500f20b660aae267cc780ee9ea56317bdf4.css"
+    integrity="sha256-LwFax2OlV0em1uj8qYfFAPILZgquJnzHgO6epWMXvfQ="
+  />
+  
+  
+
+  <meta property="og:title" content="Lý luận các khả năng tấn công với mã hash? tính chất không đảo ngược ?  Ứng dụng với lưu mật khẩu với Bscrypt  " />
+<meta property="og:description" content=" Các khả năng tấn công với mã hash ?  Ứng dụng với lưu mật khẩu với Bscrypt  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hoangtrungkien210895.github.io/en/blog/ma-hash-cac-kha-nang-tan-cong/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2022-11-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-06T00:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Lý luận các khả năng tấn công với mã hash? tính chất không đảo ngược ?  Ứng dụng với lưu mật khẩu với Bscrypt  "/>
+<meta name="twitter:description" content=" Các khả năng tấn công với mã hash ?  Ứng dụng với lưu mật khẩu với Bscrypt  "/>
+
+  <meta itemprop="name" content="Lý luận các khả năng tấn công với mã hash? tính chất không đảo ngược ?  Ứng dụng với lưu mật khẩu với Bscrypt  ">
+<meta itemprop="description" content=" Các khả năng tấn công với mã hash ?  Ứng dụng với lưu mật khẩu với Bscrypt  "><meta itemprop="datePublished" content="2022-11-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2022-11-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2566">
+<meta itemprop="keywords" content="hash,how to work,Algorithm," />
+
+  
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://hoangtrungkien210895.github.io/en/" class="capitalize font-extrabold text-2xl">
+    
+    <img src="/home2.jpeg" alt="Hoang Kien" class="h-12 max-w-full" />
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/en/blog">Blog của Kiên</a></li>
+    
+    <li><a href="/en/page/about/">About&#39;s Kiên</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+    </li>
+    
+    
+
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="toggle-dark-mode inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="5" x2="12" y2="5.01" />
+          <line x1="17" y1="7" x2="17" y2="7.01" />
+          <line x1="19" y1="12" x2="19" y2="12.01" />
+          <line x1="17" y1="17" x2="17" y2="17.01" />
+          <line x1="12" y1="19" x2="12" y2="19.01" />
+          <line x1="7" y1="17" x2="7" y2="17.01" />
+          <line x1="5" y1="12" x2="5" y2="12.01" />
+          <line x1="7" y1="7" x2="7" y2="7.01" />
+        </svg>
+      </span>
+    </li>
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="/tieu-de-ma-gia.png" class="rounded-lg shadow-sm w-10/12 object-contain" />
+    
+    <div class="absolute top-5 right-50 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+      
+  
+    November 6, 2022
+  
+
+
+    </div>
+    
+  </div>
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">Lý luận các khả năng tấn công với mã hash? tính chất không đảo ngược ?  Ứng dụng với lưu mật khẩu với Bscrypt  </h1>
+    
+    <h5 class="text-sm flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      Posted on 
+  
+    November 6, 2022
+  
+
+
+      
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      13&nbsp;minutes
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      2566&nbsp;words
+      
+        
+      
+    </h5>
+    
+
+    <h3>Mở đầu:</h3>
+<p>Lời đầu : Mật khẩu của khách hàng trong mỗi hệ thống hầu như đều được lưu dạng các &ldquo;hash&rdquo;, Vậy tại sao hash lại là thứ được chọn để lưu lại thông tin nhạy cảm như password ?</p>
+<p>Nếu hacker có trong tay thông tin về tài khoản và mật khẩu dạng &ldquo;hash&rdquo; của khách hàng thì hacker có tấn công các tài khoản trong hệ thống một cách hàng loạt được không?</p>
+<p>Mục đích của bài viết xây dựng kịch bản tấn công của kẻ tấn công khi lấy được thông tin tài khoản của bạn và mật khẩu hash. Đưa ra lý luận mức độ secure của hash với thuật toán. Cũng như một phần trả lời cho câu hỏi vì sao chúng ta phải đặt mật khẩu dài ít nhất 8 ký tự gồm ký tự đặt biệt . Tại sao chúng ta hay bị giới hạn số lần đăng nhập ? Hay cứ 6 tháng chúng ta luôn bị nhắc nhở phải thay mật khẩu.</p>
+<p>p/s: Mình luôn chọn sha256 làm ví dụ. tại sao mình chọn thuật toán này vì đây là một thuật toán mạnh và được sử dụng rộng rãi</p>
+<p>Bài này được viết như là một phần của bài <a href="https://hoangtrungkien210895.github.io/en/blog/sha-256-how-to-work/" target="_blank" rel="noopener">https://hoangtrungkien210895.github.io/en/blog/sha-256-how-to-work/</a>
+</p>
+<hr>
+<h3>Các khả năng tấn công đối với mã hash</h3>
+<p><img src="/ma-gia2.jpeg" alt="Placeholder"></p>
+<p>Như các bạn biết đấy đối với password thì mã hash có công dụng che dấu mật khẩu gốc để tránh một cuộc tấn công thử nghiệm dựa trên dựa trên dữ liệu gốc . Cho nên trên các nền tảng cơ sở dữ liệu về tài khoản, thông tin về mật khẩu khách hàng luôn được lưu dựa trên cơ chế hash để tạo lớp phòng thủ cho mật khẩu của khách hàng.</p>
+<p>Cho dù có bị lộ cả cơ sở dữ liệu về thông tin tài khoản hacker cũng không thể dựa vào đó để đăng nhập vào tài khoản của bạn .</p>
+<p>Vậy tại sao hacker lại không làm được điều đó cho dù đã nắm toàn bộ cơ sở dữ liệu của bạn?</p>
+<p>Trước hết trả lời câu hỏi trên mình sẽ đặt câu hỏi ngược lại tại không lưu mật khẩu của bạn dưới dạng thô không mã hoá .</p>
+<p>Trả lời : nếu mật khẩu ta được lưu công khai khi bị phát hiện hacker có thể sử dụng mật khẩu của mình theo 1 cách thẳng thắn mà không hề tốn công sức chút nào.</p>
+<p>Khi có được mật khẩu clear text (mật khẩu thô) vd: 123456a@ hacker sẽ nhận biết được thói quen cài đặt mật khẩu . Qua tên ngày sinh . quốc tịch màu da , tôn giáo.</p>
+<p>Hacker có thể dùng nó để dựng kích bản tấn công thử nghiệm password với các tài khoản khác của bạn với tỉ lệ trùng khớp cao .</p>
+<p>Quay lại câu hỏi tại sao hacker lại không đăng nhập được cho dù đã nắm toàn bộ cơ sở dữ liệu của bạn?</p>
+<p>Vậy nếu hacker thu thập được đoạn mã hash của password và tên tài khoản thì cách hacker tấn công đoạn mã đó để lấy ra được thông tin gốc của password sẽ có kịch bản như thế nào? (Đặt tình huống hacker bắt buộc phải tìm được mật khẩu gốc của khách hàng mới có thể tấn công tài khoản khách hàng thông qua cơ chế đăng nhập . Mình sẽ viết kịch bản theo hướng tấn công login -&gt; cấp quyền đương nhiên sẽ có những kiểu tấn công khác nhưng nó lại chưa liên quan đến chủ đề lần này):</p>
+<hr>
+<h3>Tình huống giả lập</h3>
+<p>Mình sẽ xây dựng giả lập có 2 tình huống sảy ra. 1: Đảo ngược Hash và  2: Xây dựng từ điển hash để tìm kiếm hoặc &ldquo;đào hash&rdquo;</p>
+<p>Cách 1: Đảo ngược Hash -&gt; Hacker tìm hướng đảo ngược đoạn hash dựa vào thuật toán để tìm được chuỗi mật khẩu gốc</p>
+<p>Thử nghiệm với mẫu thuật toán băm SHA256</p>
+<p>Trong thuật toán băm dùng các toán tử tính toán với  các unit . Đơn vị trong thuật toán  sha 256 dùng là 32 bit cho một “unit”  .
+Ví dụ bạn có một dãy hash đã được hash bởi thuật toán gồm 64 ký tự .Bạn cố gắng xây dựng logic để đảo ngược chuỗi hash này thành clear data .
+Bước bạn sẽ phải chia tách mỗi 8 ký tự trở thành 1 “unit 32 bit”  trong 64 ký tự hash gốc .</p>
+<p>Ngay tiếp theo bạn sẽ phải đối mặt với việc lấy 1 “unit” là kết quả cuả 1 phép cộng 2 chuỗi bit theo công thức là &ldquo;h0 + a&rdquo; = unit bạn đang xử lý . Việc đảo ngược là không thể bởi cả &ldquo;h0&rdquo; và &ldquo;a&rdquo; là các biến số được tính toán từ trước đó dựa vào clear data .</p>
+<p>Vậy bạn sẽ phải đoán 1 chuỗi bit 32 ký tự bạn có là kết quả của các &ldquo;h0&rdquo; + &ldquo;a&rdquo; nào cho ra kết quả trùng khớp với “unit” bạn có và mỗi mẫu h0 a “hợp lý” như vậy nó phải được tính toán song song với với 7 “unit” còn lại (để bạn dễ hình dung ví dụ mình có 10 và tìm x , y tổng  bằng 10 : ta có các mẫu thử 1 và 9| 9 và 1 | 2 và 8 |8 và 2|  3 và 7| 7 và 3 | 4  và 6 | 6 và 4| 5 và 5 .Với sha256 trong trường hợp xấu nhất unit sẽ có giá trị 4294967296 vậy ta sẽ có các mẫu thử là  4294967295 và 1, 4294967294 và 2 …. )</p>
+<p>Mỗi một cách chọn h0 và a của 1 unit khi thay đổi 1 chút sẽ khi kết hợp với 7 phần còn lại nó sẽ  tạo ra 1 chỉnh hợp mới . Không có cách nào để bạn chắc chắn kết quả của bạn là chắc chắn là của x + y để bạn có thể thực hiện cơ chế đào sâu.</p>
+<p>Tương đương như vậy sau khi đoán xong với các mẫu chỉnh hợp ta vào bên trong. Ta lại có hai mẫu “h0 và a” này được tính toán bằng các toán tử cộng trừ &amp; hoặc xor với cách tính 3 ngôi , 5 ngôi . Được lồng trong các vòng lặp 0 -&gt; 64 và 16 -&gt; 63  và vòng lặp này lại được lặp trong lồng to hơn khi kích thước đầu vào lớn hơn tối thiểu . Khi các biến số sử dụng của vòng lặp trước là kết quả tính toán của vòng lặp sau . Tất cả các trường hợp có thể xảy ra sẽ tạo ra 1 “thông tin mật khẩu gốc khác nhau hoàn toàn” nếu đảo ngược . Vậy với việc giả lập và đảo ngược data hash và tìm ra chuỗi gốc và hoàn toàn không khả thi khi độ phức tạp là siêu lớn và không hạn lượng được đầu vào với các mẫu dự đoán.</p>
+<p>Ta có đoạn giả mã của sha256</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>Initialize hash values<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">(</span>first 32 bits of the fractional parts of the square roots of the first 8 primes 2<span style="color:#ff79c6">..</span><span style="color:#50fa7b">19</span><span style="color:#ff79c6">):</span>
+</span></span><span style="display:flex;"><span>h0 <span style="color:#ff79c6">:=</span> 0x6a09e667
+</span></span><span style="display:flex;"><span>h1 <span style="color:#ff79c6">:=</span> 0xbb67ae85
+</span></span><span style="display:flex;"><span>h2 <span style="color:#ff79c6">:=</span> 0x3c6ef372
+</span></span><span style="display:flex;"><span>h3 <span style="color:#ff79c6">:=</span> 0xa54ff53a
+</span></span><span style="display:flex;"><span>h4 <span style="color:#ff79c6">:=</span> 0x510e527f
+</span></span><span style="display:flex;"><span>h5 <span style="color:#ff79c6">:=</span> 0x9b05688c
+</span></span><span style="display:flex;"><span>h6 <span style="color:#ff79c6">:=</span> 0x1f83d9ab
+</span></span><span style="display:flex;"><span>h7 <span style="color:#ff79c6">:=</span> 0x5be0cd19
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Initialize array of round constants<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">(</span>first 32 bits of the fractional parts of the cube roots of the first 64 primes 2<span style="color:#ff79c6">..</span><span style="color:#50fa7b">311</span><span style="color:#ff79c6">):</span>
+</span></span><span style="display:flex;"><span>k<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">..</span><span style="color:#50fa7b">63</span><span style="color:#ff79c6">]</span> <span style="color:#ff79c6">:=</span>
+</span></span><span style="display:flex;"><span>   0x428a2f98<span style="color:#ff79c6">,</span> 0x71374491<span style="color:#ff79c6">,</span> 0xb5c0fbcf<span style="color:#ff79c6">,</span> 0xe9b5dba5<span style="color:#ff79c6">,</span> 0x3956c25b<span style="color:#ff79c6">,</span> 0x59f111f1<span style="color:#ff79c6">,</span> 0x923f82a4<span style="color:#ff79c6">,</span> 0xab1c5ed5<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>   0xd807aa98<span style="color:#ff79c6">,</span> 0x12835b01<span style="color:#ff79c6">,</span> 0x243185be<span style="color:#ff79c6">,</span> 0x550c7dc3<span style="color:#ff79c6">,</span> 0x72be5d74<span style="color:#ff79c6">,</span> 0x80deb1fe<span style="color:#ff79c6">,</span> 0x9bdc06a7<span style="color:#ff79c6">,</span> 0xc19bf174<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>   0xe49b69c1<span style="color:#ff79c6">,</span> 0xefbe4786<span style="color:#ff79c6">,</span> 0x0fc19dc6<span style="color:#ff79c6">,</span> 0x240ca1cc<span style="color:#ff79c6">,</span> 0x2de92c6f<span style="color:#ff79c6">,</span> 0x4a7484aa<span style="color:#ff79c6">,</span> 0x5cb0a9dc<span style="color:#ff79c6">,</span> 0x76f988da<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>   0x983e5152<span style="color:#ff79c6">,</span> 0xa831c66d<span style="color:#ff79c6">,</span> 0xb00327c8<span style="color:#ff79c6">,</span> 0xbf597fc7<span style="color:#ff79c6">,</span> 0xc6e00bf3<span style="color:#ff79c6">,</span> 0xd5a79147<span style="color:#ff79c6">,</span> 0x06ca6351<span style="color:#ff79c6">,</span> 0x14292967<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>   0x27b70a85<span style="color:#ff79c6">,</span> 0x2e1b2138<span style="color:#ff79c6">,</span> 0x4d2c6dfc<span style="color:#ff79c6">,</span> 0x53380d13<span style="color:#ff79c6">,</span> 0x650a7354<span style="color:#ff79c6">,</span> 0x766a0abb<span style="color:#ff79c6">,</span> 0x81c2c92e<span style="color:#ff79c6">,</span> 0x92722c85<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>   0xa2bfe8a1<span style="color:#ff79c6">,</span> 0xa81a664b<span style="color:#ff79c6">,</span> 0xc24b8b70<span style="color:#ff79c6">,</span> 0xc76c51a3<span style="color:#ff79c6">,</span> 0xd192e819<span style="color:#ff79c6">,</span> 0xd6990624<span style="color:#ff79c6">,</span> 0xf40e3585<span style="color:#ff79c6">,</span> 0x106aa070<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>   0x19a4c116<span style="color:#ff79c6">,</span> 0x1e376c08<span style="color:#ff79c6">,</span> 0x2748774c<span style="color:#ff79c6">,</span> 0x34b0bcb5<span style="color:#ff79c6">,</span> 0x391c0cb3<span style="color:#ff79c6">,</span> 0x4ed8aa4a<span style="color:#ff79c6">,</span> 0x5b9cca4f<span style="color:#ff79c6">,</span> 0x682e6ff3<span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>   0x748f82ee<span style="color:#ff79c6">,</span> 0x78a5636f<span style="color:#ff79c6">,</span> 0x84c87814<span style="color:#ff79c6">,</span> 0x8cc70208<span style="color:#ff79c6">,</span> 0x90befffa<span style="color:#ff79c6">,</span> 0xa4506ceb<span style="color:#ff79c6">,</span> 0xbef9a3f7<span style="color:#ff79c6">,</span> 0xc67178f2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Process the message in successive 512<span style="color:#ff79c6">-</span>bit chunks<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">break</span> message into 512<span style="color:#ff79c6">-</span>bit chunks
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> each chunk
+</span></span><span style="display:flex;"><span>    create a 64<span style="color:#ff79c6">-</span>entry message schedule array w<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">..</span><span style="color:#50fa7b">63</span><span style="color:#ff79c6">]</span> of 32<span style="color:#ff79c6">-</span>bit <span style="color:#50fa7b">words</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">(</span>The initial values in w<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">..</span><span style="color:#50fa7b">63</span><span style="color:#ff79c6">]</span> don&#39;t matter<span style="color:#ff79c6">,</span> so many implementations zero them here<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    copy chunk into first 16 words w<span style="color:#ff79c6">[</span>0<span style="color:#ff79c6">..</span><span style="color:#50fa7b">15</span><span style="color:#ff79c6">]</span> of the message schedule array
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Extend the first 16 words into the remaining 48 words w<span style="color:#ff79c6">[</span>16<span style="color:#ff79c6">..</span><span style="color:#50fa7b">63</span><span style="color:#ff79c6">]</span> of the message schedule array<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i from 16 to 63
+</span></span><span style="display:flex;"><span>        s0 <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>15<span style="color:#ff79c6">]</span> rightrotate  7<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>15<span style="color:#ff79c6">]</span> rightrotate 18<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>15<span style="color:#ff79c6">]</span> rightshift  3<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        s1 <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>2<span style="color:#ff79c6">]</span> rightrotate 17<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>2<span style="color:#ff79c6">]</span> rightrotate 19<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>2<span style="color:#ff79c6">]</span> rightshift 10<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">:=</span> w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>16<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> s0 <span style="color:#ff79c6">+</span> w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">-</span>7<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> s1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Initialize working variables to current hash value<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    a <span style="color:#ff79c6">:=</span> h0
+</span></span><span style="display:flex;"><span>    b <span style="color:#ff79c6">:=</span> h1
+</span></span><span style="display:flex;"><span>    c <span style="color:#ff79c6">:=</span> h2
+</span></span><span style="display:flex;"><span>    d <span style="color:#ff79c6">:=</span> h3
+</span></span><span style="display:flex;"><span>    e <span style="color:#ff79c6">:=</span> h4
+</span></span><span style="display:flex;"><span>    f <span style="color:#ff79c6">:=</span> h5
+</span></span><span style="display:flex;"><span>    g <span style="color:#ff79c6">:=</span> h6
+</span></span><span style="display:flex;"><span>    h <span style="color:#ff79c6">:=</span> h7
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Compression function main loop<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i from 0 to 63
+</span></span><span style="display:flex;"><span>        S1 <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>e rightrotate 6<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>e rightrotate 11<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>e rightrotate 25<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        ch <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>e and f<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">((</span>not e<span style="color:#ff79c6">)</span> and g<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        temp1 <span style="color:#ff79c6">:=</span> h <span style="color:#ff79c6">+</span> S1 <span style="color:#ff79c6">+</span> ch <span style="color:#ff79c6">+</span> k<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">+</span> w<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span>
+</span></span><span style="display:flex;"><span>        S0 <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>a rightrotate 2<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>a rightrotate 13<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>a rightrotate 22<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        maj <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">(</span>a and b<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>a and c<span style="color:#ff79c6">)</span> xor <span style="color:#ff79c6">(</span>b and c<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        temp2 <span style="color:#ff79c6">:=</span> S0 <span style="color:#ff79c6">+</span> maj
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>        h <span style="color:#ff79c6">:=</span> g
+</span></span><span style="display:flex;"><span>        g <span style="color:#ff79c6">:=</span> f
+</span></span><span style="display:flex;"><span>        f <span style="color:#ff79c6">:=</span> e
+</span></span><span style="display:flex;"><span>        e <span style="color:#ff79c6">:=</span> d <span style="color:#ff79c6">+</span> temp1
+</span></span><span style="display:flex;"><span>        d <span style="color:#ff79c6">:=</span> c
+</span></span><span style="display:flex;"><span>        c <span style="color:#ff79c6">:=</span> b
+</span></span><span style="display:flex;"><span>        b <span style="color:#ff79c6">:=</span> a
+</span></span><span style="display:flex;"><span>        a <span style="color:#ff79c6">:=</span> temp1 <span style="color:#ff79c6">+</span> temp2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Add the compressed chunk to the current hash value<span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>    h0 <span style="color:#ff79c6">:=</span> h0 <span style="color:#ff79c6">+</span> a
+</span></span><span style="display:flex;"><span>    h1 <span style="color:#ff79c6">:=</span> h1 <span style="color:#ff79c6">+</span> b
+</span></span><span style="display:flex;"><span>    h2 <span style="color:#ff79c6">:=</span> h2 <span style="color:#ff79c6">+</span> c
+</span></span><span style="display:flex;"><span>    h3 <span style="color:#ff79c6">:=</span> h3 <span style="color:#ff79c6">+</span> d
+</span></span><span style="display:flex;"><span>    h4 <span style="color:#ff79c6">:=</span> h4 <span style="color:#ff79c6">+</span> e
+</span></span><span style="display:flex;"><span>    h5 <span style="color:#ff79c6">:=</span> h5 <span style="color:#ff79c6">+</span> f
+</span></span><span style="display:flex;"><span>    h6 <span style="color:#ff79c6">:=</span> h6 <span style="color:#ff79c6">+</span> g
+</span></span><span style="display:flex;"><span>    h7 <span style="color:#ff79c6">:=</span> h7 <span style="color:#ff79c6">+</span> h
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Produce the <span style="color:#8be9fd;font-style:italic">final</span> hash <span style="color:#50fa7b">value</span> <span style="color:#ff79c6">(</span>big<span style="color:#ff79c6">-</span>endian<span style="color:#ff79c6">):</span>
+</span></span><span style="display:flex;"><span>digest <span style="color:#ff79c6">:=</span> hash <span style="color:#ff79c6">:=</span> h0 append h1 append h2 append h3 append h4 append h5 append h6 append h7</span></span></code></pre></div>
+<hr>
+<p>Cách 2: Hacker biết thuật toán băm chúng ta . Tổ chức xây dựng bộ từ điển hash từ đó so sánh hash hoặc sử dụng máy    tính thử nghiệm từng trường hợp từ mật khẩu sinh ra hash và so sánh với hash đang có:</p>
+<p>Với cách này mình sẽ tính cost của việc xây dựng một bộ từ điển trong đó chứa tất cả khả năng của một password nếu sắp xếp các ký tự thành một chuỗi mật khẩu 8 ký tự hoàn chỉnh với sha256.</p>
+<p><img src="/magia.png" alt="Placeholder"></p>
+<p>Vậy để xây dựng 1 dictory cho một đoạn mật khẩu gồm 8 ký tự thì ta sẽ tính ra với 8 ký tự sẽ có bao nhiêu cách chọn .Giả sử với các ký tự char từ 33 đến 126  (93 ký tự )của bảng mã ascii là ký tự valid để lập mật khẩu vậy ta sẽ có tổng :</p>
+<p>Chỉnh hợp của 8 chập 93 =4.106.246.912.127.360 sấp xỉ 4 triệu tỷ cách sắp sếp mật khẩu 8 ký tự</p>
+<p>=&gt;	Tương ứng nếu bạn xây dựng 1 dictory cho để tìm kiếm chuỗi gốc cho mật khẩu được hash với 8 ký tự thì bạn phải sinh ra số lượng hash tương ứng .</p>
+<p>Ta cho đoạn hash được sử dụng là sha256 tức là 1 đoạn mã hash ít nhất để lưu lại sẽ cần 256 bit = 32 byte bộ nhớ , với 32 đoạn hash ta sẽ có được 1MB . ta có 1024 MB = 1 GB và 1024 GB = 1 TB .</p>
+<p>Vậy cần  4.106.246.912.127.360  / (32x 1024x1024) = 122.375.694 (tb) để lưu 1 dictory cho 8 ký tự .</p>
+<p>Và việc này nếu là 9 ký tự 10 ký tự thì kết quả sẽ được tính với cấp số nhân cho nên việc xây dựng dictory với đầy đủ khả năng lưu trữ cho tất cả các tình huống của password là điều gần như không có thể.</p>
+<p>Vậy nếu sử dụng các siêu máy tính để thực hiện “đào” với trường hợp 8 ký tự  , 9 ký tự , 10 ký tự thì sao việc có khả năng tìm được mật khẩu gốc chứ ?</p>
+<p>Câu trả là có ? Tức là vẫn có thể</p>
+<p>Vậy làm sao để ngăn chặn điều này ?</p>
+<p>Giải pháp : Ta dùng BCrypt</p>
+<p><strong>BCrypt là gì?</strong></p>
+<p><img src="/bcrypt.jpeg" alt="Placeholder"></p>
+<p>Là việc vận dụng hash function làm tham số cùng các tham số : cost (số lần hash liên tiếp) , salt một đoạn mã input đầu vào được trộn vào message gốc và message gốc.</p>
+<p>Cơ chế hoạt động:</p>
+<p>Ví dụ là password là message gốc: 123456 , sử dụng với mã salt: abcdef , thuật toán băm sử dụng sha256 , và một cost 10 .</p>
+<p>Thì với Bcrypt sẽ được tính toán bằng việc hash liên tục message ( password+ salt ) (“123456abcdef”) với số lần hash 2^10 hay 1024 vòng lặp .</p>
+<p>Mã ouput của nó sẽ là :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>$2y$10$RT2Pnlx7aaG2EDHy8SgdIunndkeiLB<span style="color:#ff79c6">.</span><span style="color:#50fa7b">kUTzSdVoKgL2x</span><span style="color:#ff79c6">/</span>TEr1tkZG
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">|</span>__<span style="color:#ff79c6">|</span>__<span style="color:#ff79c6">|</span>_____________________<span style="color:#ff79c6">|</span>_______________________________<span style="color:#ff79c6">|</span>
+</span></span><span style="display:flex;"><span>Alg Cost       Salt                        Hash</span></span></code></pre></div>
+<p>Vậy tại sao lại nên sử dụng bcrypt ?</p>
+<ul>
+<li>Lý do bcrypt cung cấp 2 cách thức để phòng chống việc đào đó là cost và salt .</li>
+</ul>
+<p>Vậy cost ảnh hưởng như nào với việc xây dựng từ điển hay là việc đào hash ?</p>
+<ul>
+<li>Sau khi hash một clear text thì hash đó của bạn vẫn chưa phải là bản final để so sánh vì sau khi chuỗi gốc được hash thì nó sẽ hash đi hash lại rất nhiều lần hacker phải biết chính xác cost của. của một chuỗi bcrypt để có thể hash cùng số lần tương ứng.</li>
+</ul>
+<p>Và salt thì ảnh hưởng thế nào ?</p>
+<ul>
+<li>Với việc thêm salt vào chuỗi cleartext thực chất nó làm 2 việc . Biến đổi dữ liệu clear text thành một chuỗi trộn (giữa clear text và salt) và thứ 2 nó làm tăng kích thước đầu vào khi hash . ta tưởng tưởng tượng với 8 ký tự đầu vào ta phải tính với 4 triệu tỷ khả năng thì ta thêm 20 ký tự salt vào ký tự đầu vào vậy ta sẽ phải tính với bài toán 38 ký tự đầu vào =)))</li>
+</ul>
+<p>Với việc có salt thì : Password hacker đoán được qua việc đào luôn luôn không phải là password gốc mà là một chuỗi được trộn . từ việc này ta phòng chống việc hacker thử nhiều lần bằng việc thử password clear text thông qua đăng nhập = giới hạn số lần đăng nhập 5 lần chẳng hạn.</p>
+<p>Cũng như vậy để chống lại việc tấn công theo kiểu đào hash thì thường trong vòng 3 tháng chúng ta phải đổi mật khẩu một lần.</p>
+<p><strong>Kết luận: vậy với cách thức mã hoá mật khẩu thành chuỗi hash để lưu thông tin thì hacker gần như là không thể lấy được thông tin về mật khẩu gốc của bạn cũng như cái giá cho việc này là rất đắt. Người ta đã từng tính toán nếu việc này nếu sử dụng một máy tính thông thường để tính toán ra chuỗi mật khẩu gốc của bạn sẽ mất cực kì nhiều năm và sau khi đọc bài luận này bạn cũng sẽ một phần hiểu được vì sao chúng ta luôn bị các hãng lớn như fb ,google, bắt đặt mật khẩu theo các chuẩn secure mạnh của họ (đủ độ dài , đủ phức tạp ) và tại sao thông thường 6 tháng chúng ta bị ép đổi mật khẩu một lần =)).</strong></p>
+<p>Hoàng Kiên 06/11/2022</p>
+
+
+  </article><div class="bg-blue-100 dark:bg-gray-900">
+  <div class="container px-6 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div>
+      <div class="text-2xl font-bold mb-2">Follow me</div>
+      <p class="opacity-60">Theo dõi group trên facebook của mình</p>
+    </div>
+    <ul class="flex justify-center gap-4">
+      
+      <li>
+        <a
+          href="https://www.facebook.com/groups/1058223478229630"
+          target="_blank"
+          rel="noopener"
+          aria-label="facebook"
+          class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         version="1.0" x="0px" y="0px" 
+         width="50" 
+         height="50" 
+         viewBox="0 0 50 50" 
+         class="icon icons8-Facebook-Filled" >   
+          <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path>
+        </svg>
+
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    Copyright © 2021 - Katheryn Fox · All rights reserved
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+<script>
+  
+  const darkmode = document.querySelector('.toggle-dark-mode');
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkmode', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('darkmode', 'dark')
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener('click', toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem('darkmode');
+  const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  if (darkStorage && darkStorage === 'dark') {
+    toggleDarkMode();
+  }
+</script>
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
+</body>
+</html>

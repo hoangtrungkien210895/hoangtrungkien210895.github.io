@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Algorithm on Hoang Kien</title>
-    <link>https://hoangtrungkien210895.github.io/en/tags/algorithm/</link>
-    <description>Recent content in Algorithm on Hoang Kien</description>
+    <title>hash on Hoang Kien</title>
+    <link>https://hoangtrungkien210895.github.io/en/tags/hash/</link>
+    <description>Recent content in hash on Hoang Kien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/tags/hash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lý luận các khả năng tấn công với mã hash? tính chất không đảo ngược ?  Ứng dụng với lưu mật khẩu với Bscrypt  </title>
       <link>https://hoangtrungkien210895.github.io/en/blog/ma-hash-cac-kha-nang-tan-cong/</link>
@@ -15,15 +15,6 @@
       <guid>https://hoangtrungkien210895.github.io/en/blog/ma-hash-cac-kha-nang-tan-cong/</guid>
       <description>Mở đầu: Lời đầu : Mật khẩu của khách hàng trong mỗi hệ thống hầu như đều được lưu dạng các &amp;ldquo;hash&amp;rdquo;, Vậy tại sao hash lại là thứ được chọn để lưu lại thông tin nhạy cảm như password ?
 Nếu hacker có trong tay thông tin về tài khoản và mật khẩu dạng &amp;ldquo;hash&amp;rdquo; của khách hàng thì hacker có tấn công các tài khoản trong hệ thống một cách hàng loạt được không?</description>
-    </item>
-    
-    <item>
-      <title>Thuật toán băm là gì ?  Cách thức hoạt động của thuật toán  </title>
-      <link>https://hoangtrungkien210895.github.io/en/blog/sha-256-how-to-work/</link>
-      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://hoangtrungkien210895.github.io/en/blog/sha-256-how-to-work/</guid>
-      <description>Mở đầu: Lời đầu : Có bao giờ bạn tự hỏi mọi thứ được vận hành như thế nào chưa ? Chắc ngày nhỏ chúng ta đã từng đặt ra vô số câu hỏi như thế rồi lại bỏ ngỏ vì chúng thực sự quá phức tạp . Bất kể những điều bạn nhìn thấy dù nó có đẹp đẽ hay xấu xí đến mức nào thì vốn dĩ chúng đều có nguyên nhân của nó ?</description>
     </item>
     
   </channel>
