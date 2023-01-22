@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Base64 on Hoang Kien</title>
+    <link>https://hoangtrungkien210895.github.io/en/tags/base64/</link>
+    <description>Recent content in Base64 on Hoang Kien</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/tags/base64/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Base 64 </title>
+      <link>https://hoangtrungkien210895.github.io/en/blog/base-64/</link>
+      <pubDate>Sat, 21 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtrungkien210895.github.io/en/blog/base-64/</guid>
+      <description>Mở đầu: Lời đầu : Hôm nay mình sẽ giới thiệu đến anh em về base64 cũng như cách thức hoạt động của base64
+Hoặc cũng chỉ đơn giản bài này trả lời thắc mắc của anh em tại sao chỉ với một chuỗi các ký tự nhưng base64 lại có thể hiện thị các hình ảnh.
+Mục tiêu bài này:
+Đưa cho anh em hiểu về câu chuyện của base64 , khái niệm về base64</description>
+    </item>
+    
+  </channel>
+</rss>
