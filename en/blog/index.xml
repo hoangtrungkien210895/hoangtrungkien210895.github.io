@@ -6,7 +6,19 @@
     <description>Recent content in Blog on Hoang Kien</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hoangtrungkien210895.github.io/en/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https  </title>
+      <link>https://hoangtrungkien210895.github.io/en/blog/rsa/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://hoangtrungkien210895.github.io/en/blog/rsa/</guid>
+      <description>Mở đầu: Lời tựa :
+Câu chuyên của mã hóa:
+Mình bắt đầu kể câu chuyện ở đầu thế kỉ 20 khi con người bắt đầu sử dụng các thiết bị điện tử phục vụ cho việc giao tiếp với nhau như một nhu cầu thiết yếu của cuộc sống .
+Ngay từ khi những nhà khoa học đại tài của chúng phát hiện ra trong 2 mạch điện cô lập với nhau dưới những điều kiện nhất định : một mạch điện có dòng điện đi qua có thể tạo ra dòng điện cảm ứng ở mạch điện còn lại.</description>
+    </item>
+    
     <item>
       <title>Base 64 </title>
       <link>https://hoangtrungkien210895.github.io/en/blog/base-64/</link>

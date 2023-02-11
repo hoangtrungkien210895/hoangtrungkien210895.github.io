@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage"><head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="icon" href="/favicon.jpeg">
+
+  <title>
+  Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https   - Hoang Kien
+  </title>
+  <meta name="description" content=" Cuộc hành trình đi từ lý thuyết cơ bản đến mã hóa hiện đại ." />
+  <meta name="author" content="Hoàng Kiên" />
+  <meta name="generator" content="Hugo 0.103.1" /><link
+    rel="stylesheet"
+    href="https://hoangtrungkien210895.github.io/css/styles.min.2f015ac763a55747a6d6e8fca987c500f20b660aae267cc780ee9ea56317bdf4.css"
+    integrity="sha256-LwFax2OlV0em1uj8qYfFAPILZgquJnzHgO6epWMXvfQ="
+  />
+  
+  
+
+  <meta property="og:title" content="Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https  " />
+<meta property="og:description" content=" Cuộc hành trình đi từ lý thuyết cơ bản đến mã hóa hiện đại ." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hoangtrungkien210895.github.io/en/blog/rsa/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2023-02-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-02-10T00:00:00+00:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https  "/>
+<meta name="twitter:description" content=" Cuộc hành trình đi từ lý thuyết cơ bản đến mã hóa hiện đại ."/>
+
+  <meta itemprop="name" content="Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https  ">
+<meta itemprop="description" content=" Cuộc hành trình đi từ lý thuyết cơ bản đến mã hóa hiện đại ."><meta itemprop="datePublished" content="2023-02-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-02-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2173">
+<meta itemprop="keywords" content="RSA,Nguyên lý của Mã hóa bất đối xứng,Algorithm," />
+
+  
+</head>
+<body class="dark:bg-gray-800 dark:text-white relative flex flex-col min-h-screen"><header class="container flex justify-between md:justify-between gap-4 flex-wrap p-6 mx-auto relative">
+  <a href="https://hoangtrungkien210895.github.io/en/" class="capitalize font-extrabold text-2xl">
+    
+    <img src="/home2.jpeg" alt="Hoang Kien" class="h-12 max-w-full" />
+    
+  </a>
+  <button class="mobile-menu-button md:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <line x1="4" y1="8" x2="20" y2="8" />
+      <line x1="4" y1="16" x2="20" y2="16" />
+    </svg>
+  </button>
+  <ul class="mobile-menu absolute z-10 px-6 pb-6 md:p-0 top-full left-0 w-full md:w-auto md:relative hidden md:flex flex-col md:flex-row items-end md:items-center gap-4 lg:gap-6 bg-white dark:bg-gray-800">
+
+    
+    <li><a href="/en/blog">Blog của Kiên</a></li>
+    
+    <li><a href="/en/page/about/">About&#39;s Kiên</a></li>
+    
+
+    
+    
+    <li class="flex items-center">
+      
+    </li>
+    
+    
+
+    
+
+    
+    <li class="grid place-items-center">
+      <span class="toggle-dark-mode inline-block cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="12" cy="12" r="3" />
+          <line x1="12" y1="5" x2="12" y2="5.01" />
+          <line x1="17" y1="7" x2="17" y2="7.01" />
+          <line x1="19" y1="12" x2="19" y2="12.01" />
+          <line x1="17" y1="17" x2="17" y2="17.01" />
+          <line x1="12" y1="19" x2="12" y2="19.01" />
+          <line x1="7" y1="17" x2="7" y2="17.01" />
+          <line x1="5" y1="12" x2="5" y2="12.01" />
+          <line x1="7" y1="7" x2="7" y2="7.01" />
+        </svg>
+      </span>
+    </li>
+    
+  </ul>
+</header>
+<main class="flex-1">
+  
+  
+
+  
+  <div class="relative max-w-5xl mx-auto px-4">
+    <img src="/RSA/rsa-avatar.png" class="rounded-lg shadow-sm w-10/12 object-contain" />
+    
+    <div class="absolute top-5 right-50 rounded shadow bg-white text-gray-900 dark:bg-gray-900 dark:text-white px-2 py-0.5">
+      
+  
+    February 10, 2023
+  
+
+
+    </div>
+    
+  </div>
+  
+
+  <article class="prose lg:prose-lg mx-auto my-8 dark:prose-dark px-4">
+
+    <h1 class="text-2xl font-bold mb-2">Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https  </h1>
+    
+    <h5 class="text-sm flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <rect x="4" y="5" width="16" height="16" rx="2" />
+        <line x1="16" y1="3" x2="16" y2="7" />
+        <line x1="8" y1="3" x2="8" y2="7" />
+        <line x1="4" y1="11" x2="20" y2="11" />
+        <rect x="8" y="15" width="2" height="2" />
+      </svg>
+      Posted on 
+  
+    February 10, 2023
+  
+
+
+      
+        &nbsp;&bull;&nbsp;
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="mr-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="12" r="9" />
+        <polyline points="12 7 12 12 15 15" />
+      </svg>
+      11&nbsp;minutes
+      &nbsp;&bull;
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+        <line x1="3" y1="6" x2="3" y2="19" />
+        <line x1="12" y1="6" x2="12" y2="19" />
+        <line x1="21" y1="6" x2="21" y2="19" />
+      </svg>
+      2173&nbsp;words
+      
+        
+      
+    </h5>
+    
+
+    <h3>Mở đầu:</h3>
+<p>Lời tựa :<br>
+Câu chuyên của mã hóa:</p>
+<p>Mình bắt đầu kể câu chuyện ở đầu thế kỉ 20 khi con người bắt đầu sử dụng các thiết bị điện tử phục vụ cho việc giao tiếp với nhau như một nhu cầu thiết yếu của cuộc sống .</p>
+<p>Ngay từ khi những nhà khoa học đại tài của chúng phát hiện ra trong 2 mạch điện cô lập với nhau dưới những điều kiện nhất định : một mạch điện có dòng điện đi qua có thể tạo ra dòng điện cảm ứng ở mạch điện còn lại. Chỉ với như vậy Guglielmo marconi đã phát minh ra Sóng vô tuyến . Khi đã giải quyết được việc khoảng cách trao đổi thông tin giữa những ví trí địa lý. Điều tất yếu còn lại sẽ liên quan đến việc làm thế nào ta bảo vệ thông tin khi truyền thông tin liên lạc . Vậy việc mã hóa trong cuộc sống hiện tại thì liên quan ntn nào đến bạn và tại sao người ta lại có thể bảo vệ thông tin liên lạc của bạn qua internet ? Hãy theo chân mình để khám phá từ sơ khai cho đến hiện tại nhé!</p>
+<p><img src="/RSA/guglielmo-marconi.jpg" alt="Placeholder">
+<strong>Guglielmo marconi</strong></p>
+<h3>Định nghĩa Mã hóa  </h3>
+<p>Trước hết mình sẽ định nghĩa hóa theo cách hiểu đơn giản nhất là việc biến đổi thông tin trở thành thành một dạng thông tin khác khiến cho việc bảo vệ thông tin được diễn ra . Khi thông tin được mã hóa thì việc sở hữu thông tin đó &ldquo;kẻ thứ 3&rdquo; cũng không thể sử dụng nó .</p>
+<p>Mã hóa bao gồm 2 loại chính mã hóa đối xứng và mã hóa bất đối xứng:</p>
+<p>Mã hóa đối xứng là sử dụng khóa đối xứng cho mã hóa và giải mã ( sử dụng khóa đối xứng nhau =&gt; là dùng 1 khóa )</p>
+<p>Ví dụ : Sử dụng 1 thông tin chìa khóa(K) để mã hóa một thông tin(M) -&gt; sinh ra thông tin mã hóa(M&rsquo;) .Sau đó sử dụng thông tin chìa khóa đó(K) để giải mã thông tin mã hóa (M&rsquo;) -&gt; nhận được thông tin gốc trước khi mã hóa (M)
+<img src="/RSA/Symmetric-Encryption.png" alt="Placeholder"></p>
+<hr>
+<p>Mã hóa bất đối xứng là sử dụng khóa bất đối xứng việc mã hóa và giải mã  ( dùng 2 khóa không giống nhau . 1 khóa cho mã hóa 1 khóa cho giải mã)</p>
+<p>Ví dụ : Khóa công khai (K public ) và Khóa bí mật (K private) . Ta có thông tin gốc (M) sẽ bị khóa công khai (K public ) mã hóa -&gt; sinh ra thông tin mã hóa (M&rsquo;) . Sau đó thông tin mã hóa (M&rsquo;) sẽ được khóa bí mật (K private) giải mã -&gt; nhận dược thông tin gốc (M)</p>
+<p><img src="/RSA/asymmetric-encryption.png" alt="Placeholder"></p>
+<h3>Câu chuyện thực tế </h3>
+<p>Như các đã biết trong phần định nghĩa. Mã hóa sẽ được chia theo phần mã hóa đối xứng và bất đối xứng. Trong hai loại này thì mã hóa đối xứng được sử dụng từ rất sớm vì nó đơn giản chỉ dùng 1 thông tin để mã hóa và giải mã . Trong chiến tranh thế giới thứ I và II mã hóa đối xứng được sử dụng phổ biến trong thông tin lạc giữa các bên . Nhưng yếu điểm chết người của mã hóa đối xứng là phân phối chìa khóa mã an toàn ( sử dụng 1 khóa để mã hóa và giải mã nên cả 2 đầu sử dụng đều phải có được khóa đó ). Trong chiến tranh người ta đã từng tạo ra những cuốn &ldquo;sổ khóa&rdquo; chỉ dành riêng cho việc phân phối chìa khóa và phải gặp mặt trực tiếp để đưa sổ . Đây là một công việc có chi phí rất cao cũng như có rủi ro khi bị lộ cuốn sổ chứa thông tin chìa khóa.</p>
+<p>Nếu như hiện tại khi thực hiện chuyển khoản ngân hàng bạn chỉ cần ngồi nhà thực hiện 1 nút chạm cho việc gửi thông tin chuyển khoản thì tại những năm 1970 trước đó ngân hàng phải tuyển dụng những nhân viên đặc biệt . Họ rong ruổi khắp thế giới với những chiếc vali chứa đầy thông tin về các khóa mã và giao đến tận tay khách hàng để có thể thực hiện giao dịch trực tuyến.</p>
+<h3>Thách thức đưa ra : </h3>
+<p>Nếu không thể giải quyết bài toán an toàn thông tin khi trao đổi thông tin qua mạng . thì internet liệu có thể phát triển rực rỡ như hiện tại ? và nếu để mã hóa thông tin mà chi phí cao như việc đưa tận tay khóa mã thì người ta có gọi thế kỉ 21 là thế kỉ kỹ thuật số nữa không?</p>
+<p><strong>Làm sao để phân phối được chìa khóa mã một cách an toàn ?</strong></p>
+<p>Với thách thức được đưa ra như vậy con người gần như phải dành ra cả 1 thế kỉ để trả lời cho bài toán phân phối chìa khóa . Rất nhiều nhà toán học và nhà tạo mã lỗi lạc đã tin rằng đây là điều không thể. Không có bất kì phương trình toán học nào tồn tại để giải quyết bài toán không gặp mặt trực tiếp mà vẫn có thể trao đổi khóa một cách an toàn.</p>
+<h3>Giải quyết thách thức diffie-hellman : </h3>
+<p><img src="/RSA/DH.jpg" alt="Placeholder"></p>
+<p>Để giải quyết cho vấn đề mang tính thế kỉ này phải tới năm 1976 diffie , hellman và merkle mới đưa ra câu trả lời cho việc thống nhất chìa khóa mã hóa đối xứng mà không cần gặp mặt trực tiếp . Họ sử dụng các khái niệm toán học về số học đồng dư hay còn gọi là số học môđun cùng phương trình số mũ để tạo ra hàm số một chiều (hàm số đó là : Y^x (mod P)).</p>
+<p>Khái quát đơn giản mỗi người gửi và nhận tự sinh 1 con số bí mật và sử dụng hàm số này để &ldquo;trộn&rdquo;. Sinh ra &ldquo;dữ liệu đã trộn&rdquo; và gửi dữ liệu đã trộn cho nhau . dựa vào con số bí mật của mình và dữ liệu đã trộn của đối phương sinh ra 1 số thống nhất dùng chung -&gt; đây chính là khóa mã .  Giải thích toán học:</p>
+<p>VD:
+1 . người gửi A chọn số bí mật A = &ldquo;3&rdquo; và người nhận B chọn số B = &ldquo;6&rdquo; cả 2 người đều giữ kín số bí mật số này và hàm một chiều họ thống nhất công khai là 7^x (mod 11)</p>
+<p>2 . người A trộn A = &ldquo;3&rdquo; với hàm 1 chiều ta có 7^3 (mod 11) &lt;=&gt; 343 % 11 = 2(gọi giá trị này là @ ) . người B trộn B = &ldquo;6&rdquo; với hàm 1 chiều ta có 7^6 (mod 11) &lt;=&gt; 117649 % 11 = 4 (gọi giá trị này là $ ) .  sau đó 2 người trao đổi @ và $ cho nhau</p>
+<p>3 . Vậy Người gửi A sử dụng số bí mật A và $ tính toán như sau $^A (mod 11) &lt;=&gt; 4^3 % 11 = 9</p>
+<p>4 . Vậy người nhận B sử dụng số bí mật B và @ tính toán như sau @^B (mod 11) &lt;=&gt; 2^6 % 11 = 9</p>
+<p>5 . Kết thúc quá trình trao đổi khóa và khóa đối xứng được thống nhất sử dụng trong mã hóa là 9</p>
+<p>Nhưng yếu điểm của phương pháp này là hai người là cùng phải online để có thể hoàn thành quá trình trao đổi khóa . Phát minh của diffie-hellman là tiền đề bắt buộc để Rivest , Shamir và Adleman tạo ra Mã hóa đối xứng thuật toán RSA để giải quyết hoàn hảo hơn cho phần trao đổi khóa ( RSA vẫn đang được dùng trong việc trao đổi khóa trong https hiện nay) .</p>
+<h3>RSA là gì ? Nguyên lý của Mã hóa bất đối xứng  </h3>
+<p>Diffie đã đưa ra ý tưởng tuyệt vời Mã hóa bất đối xứng gồm 2 khóa : công khai và bí mật . Người nhận sẽ công khai khóa công khai bất đối xứng của mình trên mạng . Người gửi sẽ lấy khóa công khai của người nhận để mã hóa thông tin , người nhận lấy được thông tin đã được mã hóa bằng chính khóa công khai của mình và dùng khóa bí mật của mình để giải mã .
+Và ý tưởng tuyệt vời này đã được  Rivest , Shamir và Adleman áp dụng tạo nên thuật toán RSA</p>
+<p><img src="/RSA/rsa.jpg" alt="Placeholder"></p>
+<p>Vậy thực chất RSA là gì ? tại sao có thể làm được việc khóa bí mật có thể giải mã được thông tin của khóa công khai? và nó giải quyết được vấn đề gì khi mà mã hóa xứng không làm được làm được?</p>
+<p>Về mặt toán học nguyên lý:</p>
+<p>Rivest , Shamir và Adleman đã sử dụng số nguyên tố và hàm một chiều để tạo ra các thông tin về khóa công khai và khóa bí mật được mô tả như sau :</p>
+<p>1 . Người nhận B chọn ra 2 số bí mật &ldquo;p&rdquo; và &ldquo;q&rdquo; và số &ldquo;e&rdquo; bất kì.  Rồi nhân p*q  với nhau được giá trị N (p * q = N) .</p>
+<p>2 . Người nhận B công bố &ldquo;N&rdquo; và &ldquo;e&rdquo; ra ngoài là khóa công khai . Người nhận B lưu lại &ldquo;p&rdquo; và &ldquo;q&rdquo;  là khóa bí mật .</p>
+<p>3 . Người gửi A lấy khóa công khai của B sử dụng hàm số 1 chiều để mã hóa thông tin  : C = M^e (mod N) trong đó e và N là khóa công khai của người nhận . còn M là thông tin cần mã hóa tạo ra C là thông tin đã mã hóa từ M .</p>
+<p>4 . Người nhận nhận thông tin C từ người gửi sử dụng khóa bí mật &ldquo;p&rdquo; và &ldquo;q&rdquo; để giải mã thông tin C ra M .  dựa vào một số &ldquo;d&rdquo; đặc biệt được tính bằng công thức e x d = 1( mod ( p-1 x q-1 ) ) sau khi có &ldquo;d&rdquo; người áp dụng công thức M = C^d (mod N) để tính ra M</p>
+<p>Note: với số N càng lớn thì thuật toán rsa càng an toàn</p>
+<p>Vậy ta đã chứng minh được nguyên lý được cách hoạt động của RSA .</p>
+<p>Kết luận với toán mã hóa đối xứng để gửi thông tin cần phải áp trao đổi khóa dùng chung trước . Còn với RSA thì việc này là k cần thiết chỉ cần sử dụng khóa công khai là có thể giao tiếp một cách an toàn rồi .</p>
+<h3> Đi tới hiện đại và ứng dụng của https </h3>
+<p>Mặc dù mã hóa bất đối xứng có thể mã hóa mà không cần trao đổi khóa như mã hóa đối xứng .Nhưng giá thành khi sử dụng mã hóa bất đối xứng cần tính toán nhiều hơn để mã hóa và giải mã cùng 1 thông tin. Với độ an toàn của 2 loại đối xứng và bất đối xứng là tương đương . Như vậy người ta lợi dụng ưu nhược điểm của từng loại và kết hợp với nhau như sau :</p>
+<p>Người gửi A và người nhận B.</p>
+<p>1 . Người A và B sử dụng mã hóa đối xứng để mã hóa thông tin giữa người gửi và người nhận (vì thông tin được trao đổi mã hóa giải mã liên tục nên chọn loại mã hóa ít chi phí hơn )  Nhưng mã hóa đối xứng thì cần phải thống nhất khóa dùng chung . Bởi vậy ta sẽ lợi dụng ưu điểm của mã hóa bất đối xứng để thống nhất khóa dùng chung.</p>
+<p>2 . Người A gửi &ldquo;khóa dùng chung mã hóa đối xứng&rdquo; cho người nhận B . Thông tin khóa dùng chung được mã hóa bằng &ldquo;khóa công khai người nhận&rdquo; B và chỉ người nhận B giải mã được bằng &ldquo;khóa bí mật người nhận B&rdquo; .</p>
+<p>3 . Sau khi giải mã người nhận B và A đều có được thông tin khóa dùng chung và sử dụng thuật toán mã hóa đối xứng cùng khóa xác định để giao tiếp mã hóa / giải mã với nhau</p>
+<p>Ứng dụng phổ biến nhất là https .</p>
+<p><img src="/RSA/kien2.png" alt="Placeholder"></p>
+<p>Https được hiểu cơ bản là giao thức truyền tải thông tin có mã hóa . Vậy khi bạn vào một trang web bất kì với giao thức https thực chất là bạn đã thiết lập khóa mã dùng chung chỉ có bạn và trang web đó biết theo cách thức mình đã nói như trên để giao tiếp mã hóa / giải mã .</p>
+<p>Và đó là điều kì diệu luôn xảy ra quanh bạn mà ít khi được bạn chú ý</p>
+<p>Hoàng Kiên 02/10/2023</p>
+
+
+  </article><div class="bg-blue-100 dark:bg-gray-900">
+  <div class="container px-6 py-12 mx-auto max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div>
+      <div class="text-2xl font-bold mb-2">Follow me</div>
+      <p class="opacity-60">Theo dõi group trên facebook của mình</p>
+    </div>
+    <ul class="flex justify-center gap-4">
+      
+      <li>
+        <a
+          href="https://www.facebook.com/groups/1058223478229630"
+          target="_blank"
+          rel="noopener"
+          aria-label="facebook"
+          class="p-2 inline-block rounded-full border border-transparent text-gray-500 hover:text-gray-800 hover:border-gray-800 cursor-pointer transition-colors dark:text-gray-600 dark:hover:border-gray-300 dark:hover:text-gray-300"
+        >
+        <svg xmlns="http://www.w3.org/2000/svg"
+         xmlns:xlink="http://www.w3.org/1999/xlink" 
+         version="1.0" x="0px" y="0px" 
+         width="50" 
+         height="50" 
+         viewBox="0 0 50 50" 
+         class="icon icons8-Facebook-Filled" >   
+          <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path>
+        </svg>
+
+        </a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+    </main><footer class="container p-6 mx-auto flex justify-between items-center">
+  <span class="text-sm font-light">
+    
+    Copyright © 2021 - Katheryn Fox · All rights reserved
+    
+  </span>
+  <span onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="p-1 cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5"
+      stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M18 15l-6 -6l-6 6h12" />
+    </svg>
+  </span>
+</footer>
+
+
+
+
+
+
+
+<script>
+  
+  const darkmode = document.querySelector('.toggle-dark-mode');
+  function toggleDarkMode() {
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark')
+      localStorage.setItem('darkmode', 'light')
+    } else {
+      document.documentElement.classList.add('dark')
+      localStorage.setItem('darkmode', 'dark')
+    }
+  }
+  if (darkmode) {
+    darkmode.addEventListener('click', toggleDarkMode);
+  }
+
+  const darkStorage = localStorage.getItem('darkmode');
+  const isBrowserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  if (!darkStorage && isBrowserDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  if (darkStorage && darkStorage === 'dark') {
+    toggleDarkMode();
+  }
+</script>
+
+
+<script>
+  const mobileMenuButton = document.querySelector('.mobile-menu-button')
+  const mobileMenu = document.querySelector('.mobile-menu')
+  function toggleMenu() {
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+  }
+  if(mobileMenu && mobileMenuButton){
+    mobileMenuButton.addEventListener('click', toggleMenu)
+  }
+</script>
+</body>
+</html>
