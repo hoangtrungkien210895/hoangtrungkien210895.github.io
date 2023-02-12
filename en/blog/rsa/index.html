@@ -33,7 +33,7 @@
   <meta itemprop="name" content="Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https  ">
 <meta itemprop="description" content=" Cuộc hành trình đi từ lý thuyết cơ bản đến mã hóa hiện đại ."><meta itemprop="datePublished" content="2023-02-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-02-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2173">
+<meta itemprop="wordCount" content="2182">
 <meta itemprop="keywords" content="RSA,Nguyên lý của Mã hóa bất đối xứng,Algorithm," />
 
   
@@ -147,7 +147,7 @@
         <line x1="12" y1="6" x2="12" y2="19" />
         <line x1="21" y1="6" x2="21" y2="19" />
       </svg>
-      2173&nbsp;words
+      2182&nbsp;words
       
         
       
@@ -199,8 +199,12 @@ Và ý tưởng tuyệt vời này đã được  Rivest , Shamir và Adleman á
 <p>1 . Người nhận B chọn ra 2 số bí mật &ldquo;p&rdquo; và &ldquo;q&rdquo; và số &ldquo;e&rdquo; bất kì.  Rồi nhân p*q  với nhau được giá trị N (p * q = N) .</p>
 <p>2 . Người nhận B công bố &ldquo;N&rdquo; và &ldquo;e&rdquo; ra ngoài là khóa công khai . Người nhận B lưu lại &ldquo;p&rdquo; và &ldquo;q&rdquo;  là khóa bí mật .</p>
 <p>3 . Người gửi A lấy khóa công khai của B sử dụng hàm số 1 chiều để mã hóa thông tin  : C = M^e (mod N) trong đó e và N là khóa công khai của người nhận . còn M là thông tin cần mã hóa tạo ra C là thông tin đã mã hóa từ M .</p>
-<p>4 . Người nhận nhận thông tin C từ người gửi sử dụng khóa bí mật &ldquo;p&rdquo; và &ldquo;q&rdquo; để giải mã thông tin C ra M .  dựa vào một số &ldquo;d&rdquo; đặc biệt được tính bằng công thức e x d = 1( mod ( p-1 x q-1 ) ) sau khi có &ldquo;d&rdquo; người áp dụng công thức M = C^d (mod N) để tính ra M</p>
-<p>Note: với số N càng lớn thì thuật toán rsa càng an toàn</p>
+<p>4 . Người nhận nhận thông tin C từ người gửi sử dụng khóa bí mật &ldquo;p&rdquo; và &ldquo;q&rdquo; để giải mã thông tin C ra M .  dựa vào một số &ldquo;d&rdquo; đặc biệt được tính bằng công thức  1 = e x d ( mod ( bcnn(p-1,q-1) ) ) sau khi có &ldquo;d&rdquo; người áp dụng công thức M = C^d (mod N) để tính ra M</p>
+<p>Note:</p>
+<ul>
+<li>bcnn(p-1,q-1) &lt;=&gt; bội chung nhỏ nhất của p-1 và q-1</li>
+<li>Với số N càng lớn thì thuật toán rsa càng an toàn</li>
+</ul>
 <p>Vậy ta đã chứng minh được nguyên lý được cách hoạt động của RSA .</p>
 <p>Kết luận với toán mã hóa đối xứng để gửi thông tin cần phải áp trao đổi khóa dùng chung trước . Còn với RSA thì việc này là k cần thiết chỉ cần sử dụng khóa công khai là có thể giao tiếp một cách an toàn rồi .</p>
 <h3> Đi tới hiện đại và ứng dụng của https </h3>
