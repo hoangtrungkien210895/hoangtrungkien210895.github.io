@@ -33,7 +33,7 @@
   <meta itemprop="name" content="Câu chuyện về mã hóa ? Phát minh vĩ đại của con người trong thế kỉ 20 ? Mã hóa bất đối xứng RSA và ứng dụng trong thực tế cho https  ">
 <meta itemprop="description" content=" Cuộc hành trình đi từ lý thuyết cơ bản đến mã hóa hiện đại ."><meta itemprop="datePublished" content="2023-02-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-02-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2182">
+<meta itemprop="wordCount" content="2487">
 <meta itemprop="keywords" content="RSA,Nguyên lý của Mã hóa bất đối xứng,Algorithm," />
 
   
@@ -137,7 +137,7 @@
         <circle cx="12" cy="12" r="9" />
         <polyline points="12 7 12 12 15 15" />
       </svg>
-      11&nbsp;minutes
+      12&nbsp;minutes
       &nbsp;&bull;
       <svg xmlns="http://www.w3.org/2000/svg" class="mx-1" width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -147,7 +147,7 @@
         <line x1="12" y1="6" x2="12" y2="19" />
         <line x1="21" y1="6" x2="21" y2="19" />
       </svg>
-      2182&nbsp;words
+      2487&nbsp;words
       
         
       
@@ -172,7 +172,7 @@ Câu chuyện của mã hóa:</p>
 <p>Ví dụ : Khóa công khai (K public ) và Khóa bí mật (K private) . Ta có thông tin gốc (M) sẽ bị khóa công khai (K public ) mã hóa -&gt; sinh ra thông tin mã hóa (M&rsquo;) . Sau đó thông tin mã hóa (M&rsquo;) sẽ được khóa bí mật (K private) giải mã -&gt; nhận dược thông tin gốc (M)</p>
 <p><img src="/RSA/asymmetric-encryption.png" alt="Placeholder"></p>
 <h3>Câu chuyện thực tế </h3>
-<p>Như các đã biết trong phần định nghĩa. Mã hóa sẽ được chia theo phần mã hóa đối xứng và bất đối xứng. Trong hai loại này thì mã hóa đối xứng được sử dụng từ rất sớm vì nó đơn giản chỉ dùng 1 thông tin để mã hóa và giải mã . Trong chiến tranh thế giới thứ I và II mã hóa đối xứng được sử dụng phổ biến trong thông tin lạc giữa các bên . Nhưng yếu điểm chết người của mã hóa đối xứng là phân phối chìa khóa mã an toàn ( sử dụng 1 khóa để mã hóa và giải mã nên cả 2 đầu sử dụng đều phải có được khóa đó ). Trong chiến tranh người ta đã từng tạo ra những cuốn &ldquo;sổ khóa&rdquo; chỉ dành riêng cho việc phân phối chìa khóa và phải gặp mặt trực tiếp để đưa sổ . Đây là một công việc có chi phí rất cao cũng như có rủi ro khi bị lộ cuốn sổ chứa thông tin chìa khóa.</p>
+<p>Như các đã biết trong phần định nghĩa. Mã hóa sẽ được chia theo phần mã hóa đối xứng và bất đối xứng. Trong hai loại này thì mã hóa đối xứng được sử dụng từ rất sớm vì nó đơn giản chỉ dùng 1 thông tin để mã hóa và giải mã ( ý tưởng mã hóa đối xứng đơn giản nên được biết đến rất sớm vd mình mã hóa &ldquo;5&rdquo; với khóa chung là &ldquo;3&rdquo; thì 5 +3 = 8 . thì khi  giải mã sẽ lấy 8 - 3 =5  . tức là mã hóa như nào thì giải mã sẽ suy ngược lại  ) . Trong chiến tranh thế giới thứ I và II mã hóa đối xứng được sử dụng phổ biến trong thông tin lạc giữa các bên . Nhưng yếu điểm chết người của mã hóa đối xứng là phân phối chìa khóa mã an toàn ( sử dụng 1 khóa để mã hóa và giải mã nên cả 2 đầu sử dụng đều phải có được khóa đó ). Trong chiến tranh người ta đã từng tạo ra những cuốn “sổ khóa” chỉ dành riêng cho việc phân phối chìa khóa và phải gặp mặt trực tiếp để đưa sổ . Đây là một công việc có chi phí rất cao cũng như có rủi ro khi bị lộ cuốn sổ chứa thông tin chìa khóa.</p>
 <p>Nếu như hiện tại khi thực hiện chuyển khoản ngân hàng bạn chỉ cần ngồi nhà thực hiện 1 nút chạm cho việc gửi thông tin chuyển khoản thì tại những năm 1970 trước đó ngân hàng phải tuyển dụng những nhân viên đặc biệt . Họ rong ruổi khắp thế giới với những chiếc vali chứa đầy thông tin về các khóa mã và giao đến tận tay khách hàng để có thể thực hiện giao dịch trực tuyến.</p>
 <h3>Thách thức đưa ra : </h3>
 <p>Nếu không thể giải quyết bài toán an toàn thông tin khi trao đổi thông tin qua mạng . thì internet liệu có thể phát triển rực rỡ như hiện tại ? và nếu để mã hóa thông tin mà chi phí cao như việc đưa tận tay khóa mã thì người ta có gọi thế kỉ 21 là thế kỉ kỹ thuật số nữa không?</p>
@@ -181,7 +181,13 @@ Câu chuyện của mã hóa:</p>
 <h3>Giải quyết thách thức diffie-hellman : </h3>
 <p><img src="/RSA/DH.jpg" alt="Placeholder"></p>
 <p>Để giải quyết cho vấn đề mang tính thế kỉ này phải tới năm 1976 diffie , hellman và merkle mới đưa ra câu trả lời cho việc thống nhất chìa khóa mã hóa đối xứng mà không cần gặp mặt trực tiếp . Họ sử dụng các khái niệm toán học về số học đồng dư hay còn gọi là số học môđun cùng phương trình số mũ để tạo ra hàm số một chiều (hàm số đó là : Y^x (mod P)).</p>
-<p>Khái quát đơn giản mỗi người gửi và nhận tự sinh 1 con số bí mật và sử dụng hàm số này để &ldquo;trộn&rdquo;. Sinh ra &ldquo;dữ liệu đã trộn&rdquo; và gửi dữ liệu đã trộn cho nhau . dựa vào con số bí mật của mình và dữ liệu đã trộn của đối phương sinh ra 1 số thống nhất dùng chung -&gt; đây chính là khóa mã .  Giải thích toán học:</p>
+<p>Khái quát đơn giản mỗi người gửi và nhận tự sinh 1 con số bí mật và sử dụng hàm số này để &ldquo;trộn&rdquo;. Sinh ra &ldquo;dữ liệu đã trộn&rdquo; và gửi dữ liệu đã trộn cho nhau . dựa vào con số bí mật của mình và dữ liệu đã trộn của đối phương sinh ra 1 số thống nhất dùng chung -&gt; đây chính là khóa mã .</p>
+<p><img src="/RSA/DH-A.png" alt="Placeholder"></p>
+<p>Note:</p>
+<p>Số bí mật &lt;=&gt; Secret colours</p>
+<p>Hàm số một chiều &lt;=&gt; Common paint</p>
+<p>Dữ liệu trộn = Secret colour +  Common paint.</p>
+<p>Giải thích toán học:</p>
 <p>VD:
 1 . người gửi A chọn số bí mật A = &ldquo;3&rdquo; và người nhận B chọn số B = &ldquo;6&rdquo; cả 2 người đều giữ kín số bí mật số này và hàm một chiều họ thống nhất công khai là 7^x (mod 11)</p>
 <p>2 . người A trộn A = &ldquo;3&rdquo; với hàm 1 chiều ta có 7^3 (mod 11) &lt;=&gt; 343 % 11 = 2(gọi giá trị này là @ ) . người B trộn B = &ldquo;6&rdquo; với hàm 1 chiều ta có 7^6 (mod 11) &lt;=&gt; 117649 % 11 = 4 (gọi giá trị này là $ ) .  sau đó 2 người trao đổi @ và $ cho nhau</p>
@@ -205,6 +211,17 @@ Và ý tưởng tuyệt vời này đã được  Rivest , Shamir và Adleman á
 <li>bcnn(p-1,q-1) &lt;=&gt; bội chung nhỏ nhất của p-1 và q-1</li>
 <li>Với số N càng lớn thì thuật toán rsa càng an toàn</li>
 </ul>
+<p>Example:
+Ta cần mã hóa/giải mã theo thuật toán rsa với ký tự &ldquo;A&rdquo; (đại diện theo hệ thập phân ký tự có giá trị là 65)Áp dụng các bước như trên mô tả :</p>
+<p>1 . Chọn ra 2 số bí mật p = &ldquo;61&rdquo; và q = &ldquo;53&rdquo; và số công khai e = &ldquo;17&rdquo; . Rồi nhân p*q với nhau được giá trị N = &ldquo;3233&rdquo;</p>
+<p>2 .  N = &ldquo;3233&rdquo; và  e = &ldquo;17&rdquo; là khóa công khai .  Lưu lại p = &ldquo;61&rdquo; và q = &ldquo;53&rdquo; là khóa bí mật .</p>
+<p>3 .  Lấy khóa công khai của B sử dụng hàm số 1 chiều để mã hóa thông tin giá trị &ldquo;A&rdquo; là 65 với công thức : C = M^e (mod N) &lt;=&gt; C = (65^17) % 3233 = 2790 . </p>
+<p>Sau khi mã hóa ta có giá trị mã hóa là 2790 </p>
+<p>4 . Ta có bcnn(p-1,q-1) &lt;=&gt; bcnn(60,52) = 780 .   </p>
+<p>Tính &ldquo;d&rdquo; bằng công thức . 1 = (e x d) % 780 &lt;=&gt; 1 = (17 x d ) % 780 &lt;=&gt; d = 413    </p>
+<p>Áp dụng công thức giải mã M = C^d (mod N) &lt;=&gt; M = ( 2790 ^ 413 ) % 3233 = 65</p>
+<p>Vậy sau khi giải mã ta có giá trị 65 . Đổi ra ký tự &ldquo;A&rdquo; </p>
+<p><img src="/RSA/RSA-A.png" alt="Placeholder"></p>
 <p>Vậy ta đã chứng minh được nguyên lý được cách hoạt động của RSA .</p>
 <p>Kết luận với toán mã hóa đối xứng để gửi thông tin cần phải áp trao đổi khóa dùng chung trước . Còn với RSA thì việc này là k cần thiết chỉ cần sử dụng khóa công khai là có thể giao tiếp một cách an toàn rồi .</p>
 <h3> Đi tới hiện đại và ứng dụng của https </h3>
